@@ -26,11 +26,12 @@ describe 'API endpoints' (,) ->
 
   describe '/books/' (,) ->
     it 'should accept an odp file' (done) ->
+      @timeout 300000ms
       request
         .post "#host/books/"
         .attach 'presentation', sample.path
         .end (res) ->
-          res.body.size.should.be.exactly sample.stat.size
+          res.body.sha1.should.be.exactly 'd83e46e21443f2e7a0b78a5a46e4c74b3e9219cd'
           done!
 
   after (done) -> service.stop done
