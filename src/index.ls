@@ -65,6 +65,23 @@ service =
         #r.form!append \file odp
       .get '/books/' (req, res) ->
         res.send aliases
+      .get '/books/:alias/' (req, res) ->
+        { alias } = req.params
+        sha1 = aliases[alias]
+        if not sha1
+          res.status 404 .send 'Not Found'
+        else
+          filename = path.resolve 'books', sha1, 'beta', 'metadata.json'
+          fs.exists filename, (exists) ->
+            if not exists
+              res.status 404 .send 'Not Found'
+            else
+              # XXX: is it possible to pipe it as a JSON?
+              fs.readFile filename, (err, data) ->
+                if err
+                  res.status 500 .send err
+                else
+                  res.send JSON.parse data
     server = app.listen do
       process.env.PORT or 8081
       ->
