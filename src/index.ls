@@ -6,6 +6,7 @@ require! {
   multer
   request
   level
+  cors
   decompress: Decompress
   rsvp:       { Promise, all }
   'recursive-readdir': recursive
@@ -32,6 +33,7 @@ service =
           files-of[data.value] := files
     (app = express!)
       .use multer dest: path.resolve 'uploads'
+      .use cors!
       .get '/' (req, res) ->
         res.send 'hello world'
       .post '/books/' (req, res) ->
