@@ -1,6 +1,6 @@
 {
   "name": "cnl",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CNL is Not a Lab.",
   "main": "lib/index.js",
   "scripts": {
