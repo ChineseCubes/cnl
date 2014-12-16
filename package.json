@@ -34,7 +34,9 @@
     "level": "^0.18.0",
     "mocha": "^2.0.1",
     "multer": "^0.1.6",
+    "recursive-readdir": "^1.2.0",
     "request": "^2.51.0",
+    "rsvp": "^3.0.14",
     "should": "^4.3.1",
     "superagent": "^0.21.0"
   }

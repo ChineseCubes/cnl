@@ -91,4 +91,20 @@ describe 'API endpoints' (,) ->
           (spread       isnt undefined)should.be.true
           done!
 
+    it 'should return the first page of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/page1.json"
+        .set \Accept 'application/json'
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the cover image of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/Pictures/100002010000040000000300E3ED7A2E.png"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should fail when the page does not exist' (done) ->
+      request
+        .get "#host/books/sample-0.odp/page0.json"
+        .end (res) -> res.status.should.be.exactly 404 and done!
+
   after (done) -> service.stop done
