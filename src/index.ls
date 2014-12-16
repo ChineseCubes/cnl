@@ -9,8 +9,10 @@ require! {
   cors
   decompress: Decompress
   rsvp:       { Promise, all }
-  'recursive-readdir': recursive
-  './moedict':         moedict
+  'recursive-readdir':     recursive
+  'json-stable-stringify': stringify
+  './codepoints': codepoints
+  './moedict':    moedict
 }
 
 running-as-script = not module.parent
@@ -75,8 +77,26 @@ service =
                 throw err if err
                 recursive fullpath, (err, files) ->
                   throw err if err
+                  total = 0
+                  str = ''
+                  for pagepath in files
+                    if /page\d+.json$/test pagepath
+                      ++total
+                      setImmediate do
+                        (pagepath) ->
+                          fs.readFile pagepath, (err, data) ->
+                            str += data.toString!
+                            if --total is 0
+                              codepoints str, (cpts) ->
+                                cpts = (for cpts => parseInt .., 16)
+                                chars = (for cpts => String.fromCharCode ..)join('')
+                                moedict chars, (dict) ->
+                                  fs.writeFile do
+                                    path.resolve fullpath, 'dict.json'
+                                    stringify dict, space: 2
+                                    -> res.send { "#alias": sha1 }
+                        pagepath
                   files-of[sha1] := files
-                res.send { "#alias": sha1 }
         #r.form!append \file odp
       .get '/books/' (req, res) ->
         res.send aliases
