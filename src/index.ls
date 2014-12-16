@@ -97,6 +97,14 @@ service =
                                     dictpath
                                     stringify dict, space: 2
                                     -> res.send { "#alias": sha1 }
+                                  # dummy mp3
+                                  mp3path = path.resolve fullpath, 'audio.mp3.json'
+                                  files-of[sha1]push mp3path
+                                  fs.closeSync fs.openSync mp3path, \w
+                                  # dummy vtt
+                                  vttpath = path.resolve fullpath, 'audio.vtt.json'
+                                  files-of[sha1]push vttpath
+                                  fs.closeSync fs.openSync vttpath, \w
                         pagepath
                   files-of[sha1] := files
         #r.form!append \file odp

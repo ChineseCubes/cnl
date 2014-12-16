@@ -138,6 +138,16 @@ describe 'API endpoints' (,) ->
         .get "#host/books/sample-0.odp/dict.json"
         .end (res) -> res.status.should.be.exactly 200 and done!
 
+    it 'should return the audio of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/audio.mp3.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the text track of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/audio.vtt.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
     it 'should fail when the page does not exist' (done) ->
       request
         .get "#host/books/sample-0.odp/page0.json"
