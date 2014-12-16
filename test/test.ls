@@ -50,16 +50,6 @@ describe 'API endpoints' (,) ->
           res.body['sample-1.odp']should.be.exactly 'e4d965f7726e4e6dbe62ad7eaa036d25565df1d0'
           done!
 
-    it 'should remember aliases after service restarted' (done) ->
-      @timeout 5000ms
-      service.stop -> service.start ->
-        request
-          .get "#host/books/"
-          .end (res) ->
-            res.body['sample-0.odp']should.be.exactly '84fba4f60905d963338ac7285f34da744e5ead2c'
-            res.body['sample-1.odp']should.be.exactly 'e4d965f7726e4e6dbe62ad7eaa036d25565df1d0'
-            done!
-
   describe '/books/sample-0.odp/' (,) ->
     it 'should return a valid metadata' (done) ->
       request
@@ -106,5 +96,16 @@ describe 'API endpoints' (,) ->
       request
         .get "#host/books/sample-0.odp/page0.json"
         .end (res) -> res.status.should.be.exactly 404 and done!
+
+  describe 'persistence' (,) ->
+    it 'should remember aliases after service restarted' (done) ->
+      @timeout 5000ms
+      service.stop -> service.start ->
+        request
+          .get "#host/books/"
+          .end (res) ->
+            res.body['sample-0.odp']should.be.exactly '84fba4f60905d963338ac7285f34da744e5ead2c'
+            res.body['sample-1.odp']should.be.exactly 'e4d965f7726e4e6dbe62ad7eaa036d25565df1d0'
+            done!
 
   after (done) -> service.stop done

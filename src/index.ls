@@ -63,12 +63,16 @@ service =
           (err, response, body) ->
             throw err if err
             buffer = new Buffer body, \binary
+            fullpath = path.resolve 'books', sha1, 'beta'
             decompress = new Decompress mode: \755
               .src buffer
-              .dest path.resolve 'books', sha1, 'beta'
+              .dest fullpath
               .use Decompress.zip!
               .run (err) ->
                 throw err if err
+                recursive fullpath, (err, files) ->
+                  throw err if err
+                  files-of[sha1] := files
                 res.send { "#alias": sha1 }
         #r.form!append \file odp
       .get '/books/' (req, res) ->
