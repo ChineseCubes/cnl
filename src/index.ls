@@ -91,8 +91,10 @@ service =
                                 cpts = (for cpts => parseInt .., 16)
                                 chars = (for cpts => String.fromCharCode ..)join('')
                                 moedict chars, (dict) ->
+                                  dictpath = path.resolve fullpath, 'dict.json'
+                                  files-of[sha1]push dictpath
                                   fs.writeFile do
-                                    path.resolve fullpath, 'dict.json'
+                                    dictpath
                                     stringify dict, space: 2
                                     -> res.send { "#alias": sha1 }
                         pagepath
