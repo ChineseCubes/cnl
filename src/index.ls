@@ -9,10 +9,12 @@ require! {
   cors
   decompress: Decompress
   rsvp:       { Promise, all }
+  datauri:    { promises: datauri }
   'recursive-readdir':     recursive
   'json-stable-stringify': stringify
   './codepoints': codepoints
   './moedict':    moedict
+  './webvtt':     webvtt
 }
 
 running-as-script = not module.parent
@@ -98,13 +100,13 @@ service =
                                     stringify dict, space: 2
                                     -> res.send { "#alias": sha1 }
                                   # dummy mp3
-                                  mp3path = path.resolve fullpath, 'audio.mp3.json'
-                                  files-of[sha1]push mp3path
-                                  fs.closeSync fs.openSync mp3path, \w
+                                  #mp3path = path.resolve fullpath, 'audio.mp3.json'
+                                  #files-of[sha1]push mp3path
+                                  #fs.writeFileSync mp3path, '{"mp3":""}'
                                   # dummy vtt
-                                  vttpath = path.resolve fullpath, 'audio.vtt.json'
-                                  files-of[sha1]push vttpath
-                                  fs.closeSync fs.openSync vttpath, \w
+                                  #vttpath = path.resolve fullpath, 'audio.vtt.json'
+                                  #files-of[sha1]push vttpath
+                                  #fs.writeFileSync vttpath, '{"webvtt":""}'
                         pagepath
                   files-of[sha1] := files
         #r.form!append \file odp
@@ -125,6 +127,41 @@ service =
               if err
                 then res.status 500 .send err
                 else res.send JSON.parse data
+      .post '/books/:alias/audio.mp3' (req, res) ->
+        { alias } = req.params
+        sha1 = aliases[alias]
+        if not sha1
+          res.status 404 .send 'Not Found'
+        else
+          fullpath = path.resolve 'books', sha1, 'beta'
+          mp3-path = req.files.mp3.path
+          datauri mp3-path .then do
+            ->
+              json-path = path.resolve fullpath, 'audio.mp3.json'
+              files-of[sha1]push json-path
+              fs.writeFile do
+                json-path
+                "{\"mp3\":\"#{it.replace \mpeg -> \mp3}\"}"
+                -> res.send 'ok'
+            ->
+              throw it
+      .post '/books/:alias/audio.vtt' (req, res) ->
+        { alias } = req.params
+        sha1 = aliases[alias]
+        if not sha1
+          res.status 404 .send 'Not Found'
+        else
+          fullpath = path.resolve 'books', sha1, 'beta'
+          vtt-path = req.files.webvtt.path
+          webvtt do
+            vtt-path
+            (str) ->
+              json-path = path.resolve fullpath, 'audio.vtt.json'
+              files-of[sha1]push json-path
+              fs.writeFile do
+                json-path
+                str
+                -> res.send 'ok'
       .get /\/books\/[^/]+\/.+/ (req, res) ->
         { 1: alias, 2: filepath } = /\/books\/([^/]+)\/(.+)/exec req.url
         sha1 = aliases[alias]

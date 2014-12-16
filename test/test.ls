@@ -5,6 +5,7 @@ require! {
   superagent: request
   '../src/codepoints': codepoints
   '../src/moedict':    moedict
+  '../src/webvtt':     webvtt
 }
 
 service = require '../lib'
@@ -15,7 +16,7 @@ describe 'utils' (,) ->
   describe 'codepoints' (,) ->
     it 'should separate codepoints' (done) ->
       codepoints do
-        '"text":"\\u6211\\u60f3"}]}]}]}'
+        '{"text":"\\u6211\\u60f3"}'
         (cpts) ->
           cpts.0.should.be.exactly \60f3
           cpts.1.should.be.exactly \6211
@@ -50,10 +51,22 @@ describe 'utils' (,) ->
             "zh-TW": "典"
           done!
 
+  describe 'webvtt' (,) ->
+    it 'should return vtt.json' (done) ->
+      webvtt do
+        path.resolve pwd, 'sample-0.vtt'
+        (str) ->
+          str.should.be.exactly '{"webvtt":"WEBVTT\\n\\n1\\n00:00:00.000 --> 00:00:02.490\\n我想擁抱頑皮的猴子\\n\\n2\\n00:00:02.490 --> 00:00:05.075\\n我想擁抱懶惰的樹懶\\n\\n"}'
+          done!
+
 describe 'API endpoints' (,) ->
   samples =
-    * path: path.resolve pwd, 'sample-0.odp'
-    * path: path.resolve pwd, 'sample-1.odp'
+    * path:   path.resolve pwd, 'sample-0.odp'
+      mp3:    path.resolve pwd, 'sample-0.mp3'
+      webvtt: path.resolve pwd, 'sample-0.vtt'
+    * path:   path.resolve pwd, 'sample-1.odp'
+      mp3:    path.resolve pwd, 'sample-1.mp3'
+      webvtt: path.resolve pwd, 'sample-1.vtt'
 
   before (done) ->
     service.start done
@@ -92,6 +105,28 @@ describe 'API endpoints' (,) ->
           done!
 
   describe '/books/sample-0.odp/' (,) ->
+    it 'should accept an audio file' (done) ->
+      request
+        .post "#host/books/sample-0.odp/audio.mp3"
+        .attach 'mp3', samples.0.mp3
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the audio of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/audio.mp3.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should accept a text track' (done) ->
+      request
+        .post "#host/books/sample-0.odp/audio.vtt"
+        .attach "webvtt", samples.0.webvtt
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the text track of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/audio.vtt.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
     it 'should return a valid metadata' (done) ->
       request
         .get "#host/books/sample-0.odp/"
@@ -136,16 +171,6 @@ describe 'API endpoints' (,) ->
     it 'should return the dictionary of that book' (done) ->
       request
         .get "#host/books/sample-0.odp/dict.json"
-        .end (res) -> res.status.should.be.exactly 200 and done!
-
-    it 'should return the audio of that book' (done) ->
-      request
-        .get "#host/books/sample-0.odp/audio.mp3.json"
-        .end (res) -> res.status.should.be.exactly 200 and done!
-
-    it 'should return the text track of that book' (done) ->
-      request
-        .get "#host/books/sample-0.odp/audio.vtt.json"
         .end (res) -> res.status.should.be.exactly 200 and done!
 
     it 'should fail when the page does not exist' (done) ->
