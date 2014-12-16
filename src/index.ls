@@ -10,6 +10,7 @@ require! {
   decompress: Decompress
   rsvp:       { Promise, all }
   'recursive-readdir': recursive
+  './moedict':         moedict
 }
 
 running-as-script = not module.parent

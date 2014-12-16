@@ -32,6 +32,7 @@
     "gulp": "^3.8.10",
     "gulp-livescript": "^2.3.0",
     "gulp-util": "^3.0.1",
+    "json-stable-stringify": "^1.0.0",
     "level": "^0.18.0",
     "mocha": "^2.0.1",
     "multer": "^0.1.6",
@@ -39,6 +40,7 @@
     "request": "^2.51.0",
     "rsvp": "^3.0.14",
     "should": "^4.3.1",
-    "superagent": "^0.21.0"
+    "superagent": "^0.21.0",
+    "through": "^2.3.6"
   }
 }

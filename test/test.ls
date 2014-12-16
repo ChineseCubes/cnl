@@ -3,11 +3,52 @@ require! {
   path
   should
   superagent: request
+  '../src/codepoints': codepoints
+  '../src/moedict':    moedict
 }
 
 service = require '../lib'
 pwd     = __dirname
 host    = 'http://localhost:8081'
+
+describe 'utils' (,) ->
+  describe 'codepoints' (,) ->
+    it 'should separate codepoints' (done) ->
+      codepoints do
+        '"text":"\\u6211\\u60f3"}]}]}]}'
+        (cpts) ->
+          cpts.0.should.be.exactly \60f3
+          cpts.1.should.be.exactly \6211
+          done!
+
+  describe 'moedict' (,) ->
+    it 'should fetch data from http://www.moedict.tw/' (done) ->
+      moedict do
+        '萌典'
+        (dict) ->
+          dict['萌']should.containDeep do
+            en:
+              * "to sprout"
+              * "to bud"
+              * "to have a strong affection for (slang)​"
+              * "adorable (loanword from Japanese <a href=\"#~萌\">萌</a>え moe"
+              * " slang describing affection for a cute character)​"
+            pinyin: "méng"
+            "zh-CN": "萌"
+            "zh-TW": "萌"
+          dict['典']should.containDeep do
+            en:
+              * "canon"
+              * "law"
+              * "standard work of scholarship"
+              * "literary quotation or allusion"
+              * "ceremony"
+              * "to be in charge of"
+              * "to mortgage or pawn"
+            pinyin: "diǎn"
+            "zh-CN": "典"
+            "zh-TW": "典"
+          done!
 
 describe 'API endpoints' (,) ->
   samples =
