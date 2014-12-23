@@ -63,7 +63,7 @@ service =
         # XXX: should try superagent again later
         r = request do
           method:   \POST
-          url:      'https://beta2.chinesecubes.com/sandbox/odpConvert.php'
+          url:      'https://web-beta.chinesecubes.com/sandbox/odpConvert.php'
           encoding: \binary
           # XXX: why I have to open a file twice?
           formData: file: fs.createReadStream odp-path
