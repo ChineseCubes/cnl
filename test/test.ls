@@ -70,18 +70,121 @@ describe 'API endpoints' (,) ->
     service.start done
 
   describe '/' (,) ->
-    it 'should be fine' (done) ->
+    it 'should have value' (done) ->
       request.get "#host/" (res) ->
-        res.text.should.be.exactly service.msg
+        res.text.should.be.exactly 'hello world'
         done!
 
   describe '/books/' (,) ->
-    it 'should return all books' (done) ->
+    it 'should accept a odp file' (done) ->
+      @timeout 60000ms
+      request
+        .post "#host/books/"
+        .attach 'presentation', samples.0.path
+        .end (res) ->
+          res.body['sample-0.odp']should.be.exactly samples.0.hash
+          done!
+
+    it 'should accept another odp file' (done) ->
+      @timeout 60000ms
+      request
+        .post "#host/books/"
+        .attach 'presentation', samples.1.path
+        .end (res) ->
+          res.body['sample-1.odp']should.be.exactly samples.1.hash
+          done!
+
+    it 'should return the aliases of all books' (done) ->
       request
         .get "#host/books/"
         .end (res) ->
-          # FIXME: should add more details
-          should(res.body)be.ok
+          res.body['sample-0.odp']should.be.exactly samples.0.hash
+          res.body['sample-1.odp']should.be.exactly samples.1.hash
           done!
+
+  describe '/books/sample-0.odp/' (,) ->
+    it 'should accept an audio file' (done) ->
+      request
+        .post "#host/books/sample-0.odp/audio.mp3"
+        .attach 'mp3', samples.0.mp3
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the audio of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/audio.mp3.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should accept a text track' (done) ->
+      request
+        .post "#host/books/sample-0.odp/audio.vtt"
+        .attach "webvtt", samples.0.webvtt
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the text track of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/audio.vtt.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return a valid metadata' (done) ->
+      request
+        .get "#host/books/sample-0.odp/"
+        .set \Accept 'application/json'
+        .end (res) ->
+          {
+            contributors, coverage,   creator,  date,      description,
+            format,       identifier, language, publisher, relation,
+            rights,       source,     subject,  title,     type,
+            'rendition:layout': layout
+            'rendition:spread': spread
+          } = res.body
+          (contributors isnt undefined)should.be.true
+          (coverage     isnt undefined)should.be.true
+          (creator      isnt undefined)should.be.true
+          (description  isnt undefined)should.be.true
+          (format       isnt undefined)should.be.true
+          (identifier   isnt undefined)should.be.true
+          (language     isnt undefined)should.be.true
+          (publisher    isnt undefined)should.be.true
+          (relation     isnt undefined)should.be.true
+          (rights       isnt undefined)should.be.true
+          (source       isnt undefined)should.be.true
+          (subject      isnt undefined)should.be.true
+          (title        isnt undefined)should.be.true
+          (type         isnt undefined)should.be.true
+          (layout       isnt undefined)should.be.true
+          (spread       isnt undefined)should.be.true
+          done!
+
+    it 'should return the first page of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/page1.json"
+        .set \Accept 'application/json'
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the cover image of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/Pictures/100002010000040000000300E3ED7A2E.png"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should return the dictionary of that book' (done) ->
+      request
+        .get "#host/books/sample-0.odp/dict.json"
+        .end (res) -> res.status.should.be.exactly 200 and done!
+
+    it 'should fail when the page does not exist' (done) ->
+      request
+        .get "#host/books/sample-0.odp/page0.json"
+        .end (res) -> res.status.should.be.exactly 404 and done!
+
+  describe 'persistence' (,) ->
+    it 'should remember aliases after service restarted' (done) ->
+      @timeout 5000ms
+      service.stop -> service.start ->
+        request
+          .get "#host/books/"
+          .end (res) ->
+            res.body['sample-0.odp']should.be.exactly samples.0.hash
+            res.body['sample-1.odp']should.be.exactly samples.1.hash
+            done!
 
   after (done) -> service.stop done
