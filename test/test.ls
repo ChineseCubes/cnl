@@ -15,40 +15,36 @@ host    = 'http://localhost:8081'
 describe 'utils' (,) ->
   describe 'codepoints' (,) ->
     it 'should separate codepoints' (done) ->
-      codepoints do
-        '{"text":"\\u6211\\u60f3"}'
-        (cpts) ->
-          cpts.0.should.be.exactly \60f3
-          cpts.1.should.be.exactly \6211
-          done!
+      codepoints '{"text":"\\u6211\\u60f3"}' .then (cpts) ->
+        cpts.0.should.be.exactly \60f3
+        cpts.1.should.be.exactly \6211
+        done!
 
   describe 'moedict' (,) ->
     it 'should fetch data from http://www.moedict.tw/' (done) ->
-      moedict do
-        '萌典'
-        (dict) ->
-          dict['萌']should.containDeep do
-            en:
-              * "to sprout"
-              * "to bud"
-              * "to have a strong affection for (slang)​"
-              * "adorable (loanword from Japanese <a href=\"#~萌\">萌</a>え moe"
-              * " slang describing affection for a cute character)​"
-            pinyin: "méng"
-            "zh-CN": "萌"
-            "zh-TW": "萌"
-          dict['典']should.containDeep do
-            en:
-              * "canon"
-              * "law"
-              * "standard work of scholarship"
-              * "literary quotation or allusion"
-              * "ceremony"
-              * "to be in charge of"
-              * "to mortgage or pawn"
-            pinyin: "diǎn"
-            "zh-CN": "典"
-            "zh-TW": "典"
+      moedict '萌典' .then (dict) ->
+        dict['萌']should.containDeep do
+          en:
+            * "to sprout"
+            * "to bud"
+            * "to have a strong affection for (slang)​"
+            * "adorable (loanword from Japanese <a href=\"#~萌\">萌</a>え moe"
+            * " slang describing affection for a cute character)​"
+          pinyin: "méng"
+          "zh-CN": "萌"
+          "zh-TW": "萌"
+        dict['典']should.containDeep do
+          en:
+            * "canon"
+            * "law"
+            * "standard work of scholarship"
+            * "literary quotation or allusion"
+            * "ceremony"
+            * "to be in charge of"
+            * "to mortgage or pawn"
+          pinyin: "diǎn"
+          "zh-CN": "典"
+          "zh-TW": "典"
           done!
 
   describe 'webvtt' (,) ->
@@ -62,9 +58,11 @@ describe 'utils' (,) ->
 describe 'API endpoints' (,) ->
   samples =
     * path:   path.resolve pwd, 'sample-0.odp'
+      hash:   'd527ced2aada603fd12989a39009b0cc6deb7e85'
       mp3:    path.resolve pwd, 'sample-0.mp3'
       webvtt: path.resolve pwd, 'sample-0.vtt'
     * path:   path.resolve pwd, 'sample-1.odp'
+      hash:   'e6d24a19ab7a384fcf0d86c850f3de9595ba0137'
       mp3:    path.resolve pwd, 'sample-1.mp3'
       webvtt: path.resolve pwd, 'sample-1.vtt'
 
@@ -84,7 +82,7 @@ describe 'API endpoints' (,) ->
         .post "#host/books/"
         .attach 'presentation', samples.0.path
         .end (res) ->
-          res.body['sample-0.odp']should.be.exactly '84fba4f60905d963338ac7285f34da744e5ead2c'
+          res.body['sample-0.odp']should.be.exactly samples.0.hash
           done!
 
     it 'should accept another odp file' (done) ->
@@ -93,15 +91,15 @@ describe 'API endpoints' (,) ->
         .post "#host/books/"
         .attach 'presentation', samples.1.path
         .end (res) ->
-          res.body['sample-1.odp']should.be.exactly 'e4d965f7726e4e6dbe62ad7eaa036d25565df1d0'
+          res.body['sample-1.odp']should.be.exactly samples.1.hash
           done!
 
     it 'should return the aliases of all books' (done) ->
       request
         .get "#host/books/"
         .end (res) ->
-          res.body['sample-0.odp']should.be.exactly '84fba4f60905d963338ac7285f34da744e5ead2c'
-          res.body['sample-1.odp']should.be.exactly 'e4d965f7726e4e6dbe62ad7eaa036d25565df1d0'
+          res.body['sample-0.odp']should.be.exactly samples.0.hash
+          res.body['sample-1.odp']should.be.exactly samples.1.hash
           done!
 
   describe '/books/sample-0.odp/' (,) ->
@@ -185,8 +183,8 @@ describe 'API endpoints' (,) ->
         request
           .get "#host/books/"
           .end (res) ->
-            res.body['sample-0.odp']should.be.exactly '84fba4f60905d963338ac7285f34da744e5ead2c'
-            res.body['sample-1.odp']should.be.exactly 'e4d965f7726e4e6dbe62ad7eaa036d25565df1d0'
+            res.body['sample-0.odp']should.be.exactly samples.0.hash
+            res.body['sample-1.odp']should.be.exactly samples.1.hash
             done!
 
   after (done) -> service.stop done

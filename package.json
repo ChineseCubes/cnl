@@ -37,6 +37,7 @@
     "level": "^0.18.0",
     "mocha": "^2.0.1",
     "multer": "^0.1.6",
+    "prelude-ls": "^1.1.1",
     "recursive-readdir": "^1.2.0",
     "request": "^2.51.0",
     "rsvp": "^3.0.14",

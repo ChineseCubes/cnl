@@ -8,8 +8,9 @@ require! {
   level
   cors
   decompress: Decompress
-  rsvp:       { Promise, all }
-  datauri:    { promises: datauri }
+  rsvp:         { Promise, all }
+  datauri:      { promises: datauri }
+  'prelude-ls': { filter }
   'recursive-readdir':     recursive
   'json-stable-stringify': stringify
   './codepoints': codepoints
@@ -79,36 +80,28 @@ service =
                 throw err if err
                 recursive fullpath, (err, files) ->
                   throw err if err
-                  total = 0
-                  str = ''
-                  for pagepath in files
-                    if /page\d+.json$/test pagepath
-                      ++total
-                      setImmediate do
-                        (pagepath) ->
-                          fs.readFile pagepath, (err, data) ->
-                            str += data.toString!
-                            if --total is 0
-                              codepoints str, (cpts) ->
-                                cpts = (for cpts => parseInt .., 16)
-                                chars = (for cpts => String.fromCharCode ..)join('')
-                                moedict chars, (dict) ->
-                                  dictpath = path.resolve fullpath, 'dict.json'
-                                  files-of[sha1]push dictpath
-                                  fs.writeFile do
-                                    dictpath
-                                    stringify dict, space: 2
-                                    -> res.send { "#alias": sha1 }
-                                  # dummy mp3
-                                  #mp3path = path.resolve fullpath, 'audio.mp3.json'
-                                  #files-of[sha1]push mp3path
-                                  #fs.writeFileSync mp3path, '{"mp3":""}'
-                                  # dummy vtt
-                                  #vttpath = path.resolve fullpath, 'audio.vtt.json'
-                                  #files-of[sha1]push vttpath
-                                  #fs.writeFileSync vttpath, '{"webvtt":""}'
-                        pagepath
                   files-of[sha1] := files
+                  files = files |> filter (-> it is /page\d+.json$/)
+                  ps = for pagepath in files
+                    new Promise (resolve, reject) ->
+                      fs.readFile pagepath, (err, data) ->
+                        resolve data.toString!
+                  all ps .then (pages) ->
+                    str = pages.join ''
+                    Promise.resolve!
+                      .then ->
+                        codepoints str
+                      .then (cpts) ->
+                        cpts = (for cpts => parseInt .., 16)
+                        chars = (for cpts => String.fromCharCode ..)join('')
+                        moedict chars
+                      .then (dict) ->
+                        dictpath = path.resolve fullpath, 'dict.json'
+                        files-of[sha1]push dictpath
+                        fs.writeFile do
+                          dictpath
+                          stringify dict, space: 2
+                          -> res.send { "#alias": sha1 }
         #r.form!append \file odp
       .get '/books/' (req, res) ->
         res.send aliases

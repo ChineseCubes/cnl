@@ -3,12 +3,13 @@
 require! {
   request
   through
+  rsvp: { Promise, all }
   'json-stable-stringify': stringify
 }
 
 running-as-script = not module.parent
 
-moedict = (todo, done) ->
+moedict = (todo, done) -> new Promise (resolve, reject) ->
   count = 0
   fetched = {}
   for let c in todo
@@ -22,7 +23,8 @@ moedict = (todo, done) ->
         pinyin:  moe.heteronyms.0.pinyin - /<br>.*/
         en:      moe.translation?English?join(\,)?split(/,\w*?/) or []
     if ++count is todo.length # end
-      return done fetched
+      done? fetched
+      resolve fetched
 
 if running-as-script
   todo = []
