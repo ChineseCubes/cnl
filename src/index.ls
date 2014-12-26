@@ -11,13 +11,11 @@ require! {
   moment
   decompress: Decompress
   rsvp:         { Promise, all }
-  datauri:      { promises: datauri }
   'prelude-ls': { filter, split, join, map, find }
   'recursive-readdir':     recursive
   'json-stable-stringify': stringify
   './codepoints': codepoints
   './moedict':    moedict
-  './webvtt':     webvtt
 }
 
 running-as-script = not module.parent
@@ -41,7 +39,7 @@ service =
             alias: dashed
             timestamp: moment book.last_update .valueOf!
           aliases.push book
-        aliases.sort (a, b) -> a.timestamp - b.timestamp
+        aliases.sort (a, b) -> +a.id - +b.id
     ask-apis-beta = (alias, filepath, req, res) ->
       book = aliases |> find (.alias is alias)
       unless book
@@ -66,6 +64,33 @@ service =
       .get '/books/:alias/' (req, res) ->
         { alias } = req.params
         ask-apis-beta alias, 'masterpage.json', req, res
+      .get '/books/:alias/audio.mp3.json' (req, res) ->
+        { alias } = req.params
+        book = aliases |> find (.alias is alias)
+        unless book
+          return res.status 404 .send 'Not Found'
+        { id, hash } = book
+        request do
+          "https://apis-beta.chinesecubes.com/Epub/getBookFile/#id/#hash/audio.mp3"
+          (e, r, body) ->
+            base64 = new Buffer(body)toString(\base64)
+            res
+              .type \json
+              .send "{\"mp3\":\"data:audio/mp3;base64,#base64\"}"
+      .get '/books/:alias/audio.vtt.json' (req, res) ->
+        { alias } = req.params
+        book = aliases |> find (.alias is alias)
+        unless book
+          return res.status 404 .send 'Not Found'
+        { id, hash } = book
+        request do
+          "https://apis-beta.chinesecubes.com/Epub/getBookFile/#id/#hash/audio.vtt"
+          (e, r, body) ->
+            body .= replace /\ufeff/g
+            body .= replace /\r\n?|\n/g, '\\n'
+            res
+              .type \json
+              .send "{\"webvtt\":\"#body\"}"
       .get /\/books\/[^/]+\/.+/ (req, res) ->
         { 1: alias, 2: filepath } = /\/books\/([^/]+)\/(.+)/exec req.url
         ask-apis-beta alias, filepath, req, res
