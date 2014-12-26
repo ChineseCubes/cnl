@@ -18,6 +18,7 @@ require! {
   './moedict':    moedict
 }
 
+api-host          = 'https://apis-beta.chinesecubes.com'
 running-as-script = not module.parent
 aliases-db        = level './db/aliases'
 trim              = -> it.replace /^\s+|\s+$/, ''
@@ -30,8 +31,9 @@ service =
   stop:  not-running
   start: (done) !->
     aliases = []
+    dicts = {}
     request do
-      'https://apis-beta.chinesecubes.com/Epub/getBooklist'
+      "#api-host/Epub/getBooklist"
       (err, res, body) ->
         for book in JSON.parse body
           dashed = hyphenated book.title
@@ -40,13 +42,39 @@ service =
             timestamp: moment book.last_update .valueOf!
           aliases.push book
         aliases.sort (a, b) -> +a.id - +b.id
+        ps = for let { id, hash, alias } in aliases
+          new Promise (resolve, reject) ->
+            request do
+              "#api-host/Epub/getBookFile/#id/#hash/masterpage.json"
+              (e, r, body) ->
+                throw e if e
+                return unless r.statusCode is 200
+                page-num = +JSON.parse body .attrs['TOTAL-PAGES']
+                ps = for i from 1 to page-num
+                  new Promise (resolve, reject) ->
+                    request do
+                      "#api-host/Epub/getBookFile/#id/#hash/page#i.json"
+                      (e, r, body) ->
+                        throw e if e
+                        return reject r unless r.statusCode is 200
+                        resolve body
+                all ps
+                  .then ->
+                    codepoints it.join ''
+                  .then (cpts) ->
+                    cpts  = (for cpts => parseInt .., 16)
+                    chars = (for cpts => String.fromCharCode ..)join('')
+                    console.log "generating dict.json: #alias"
+                    resolve dicts[alias] := moedict chars
+        all ps .then -> console.log "all dict.json are ready"
     ask-apis-beta = (alias, filepath, req, res) ->
+      console.log filepath
       book = aliases |> find (.alias is alias)
       unless book
         return res.status 404 .send 'Not Found'
       { id, hash } = book
       request do
-        "https://apis-beta.chinesecubes.com/Epub/getBookFile/#id/#hash/#filepath"
+        "#api-host/Epub/getBookFile/#id/#hash/#filepath"
         (e, r, body) ->
           if e
             return res.status 500 .send 'Internal Error'
@@ -64,6 +92,12 @@ service =
       .get '/books/:alias/' (req, res) ->
         { alias } = req.params
         ask-apis-beta alias, 'masterpage.json', req, res
+      .get '/books/:alias/dict.json' (req, res) ->
+        { alias } = req.params
+        book = aliases |> find (.alias is alias)
+        unless book
+          return res.status 404 .send 'Not Found'
+        dicts[alias]then -> res.json it
       .get '/books/:alias/audio.mp3.json' (req, res) ->
         { alias } = req.params
         book = aliases |> find (.alias is alias)
@@ -71,7 +105,7 @@ service =
           return res.status 404 .send 'Not Found'
         { id, hash } = book
         request do
-          "https://apis-beta.chinesecubes.com/Epub/getBookFile/#id/#hash/audio.mp3"
+          "#api-host/Epub/getBookFile/#id/#hash/audio.mp3"
           (e, r, body) ->
             base64 = new Buffer(body)toString(\base64)
             res
@@ -84,7 +118,7 @@ service =
           return res.status 404 .send 'Not Found'
         { id, hash } = book
         request do
-          "https://apis-beta.chinesecubes.com/Epub/getBookFile/#id/#hash/audio.vtt"
+          "#api-host/Epub/getBookFile/#id/#hash/audio.vtt"
           (e, r, body) ->
             body .= replace /\ufeff/g
             body .= replace /\r\n?|\n/g, '\\n'
