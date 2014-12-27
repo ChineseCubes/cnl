@@ -68,20 +68,36 @@ service =
                     resolve dicts[alias] := moedict chars
         all ps .then -> console.log "all dict.json are ready"
     ask-apis-beta = (alias, filepath, req, res) ->
-      console.log filepath
       book = aliases |> find (.alias is alias)
       unless book
         return res.status 404 .send 'Not Found'
       { id, hash } = book
       request do
-        "#api-host/Epub/getBookFile/#id/#hash/#filepath"
-        (e, r, body) ->
+        method:   \GET
+        url:      "#api-host/Epub/getBookFile/#id/#hash/#filepath"
+        encoding: \binary
+        (e, r, body) !-> # prevent switch return
           if e
             return res.status 500 .send 'Internal Error'
           if r.statusCode isnt 200
             return res.status r.statusCode .send '?'
-          res.type 'json' if filepath is /.json$/
-          res.send body
+          switch
+            | filepath is /.json$/
+              res
+                ..type 'json'
+                ..send body
+            | filepath is /.jpg/
+              res
+                ..type 'jpg'
+                ..send new Buffer body, \binary
+            | filepath is /.png$/
+              res
+                ..type 'png'
+                ..send new Buffer body, \binary
+            | otherwise
+              res
+                ..send 'text'
+                ..send body
     (app = express!)
       .use multer dest: path.resolve 'uploads'
       .use cors!
@@ -127,6 +143,7 @@ service =
               .send "{\"webvtt\":\"#body\"}"
       .get /\/books\/[^/]+\/.+/ (req, res) ->
         { 1: alias, 2: filepath } = /\/books\/([^/]+)\/(.+)/exec req.url
+        filepath .= replace /Pictures\//, ''
         ask-apis-beta alias, filepath, req, res
     server = app.listen do
       process.env.PORT or 8081
