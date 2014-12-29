@@ -1,19 +1,11 @@
 require! {
   fs
-  path
-  crypto
   express
-  multer
   request
-  level
   cors
-  through
   moment
-  decompress: Decompress
   rsvp:         { Promise, all }:RSVP
   'prelude-ls': { filter, split, join, map, find }
-  'recursive-readdir':     recursive
-  'json-stable-stringify': stringify
   './codepoints': codepoints
   './moedict':    moedict
 }
@@ -98,7 +90,7 @@ service =
 
     start = !->
       (app = express!)
-        .use multer dest: path.resolve 'uploads'
+        #.use multer dest: path.resolve 'uploads'
         .use cors!
         .get '/' (req, res) ->
           res.send service.msg
