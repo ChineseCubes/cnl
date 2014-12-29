@@ -120,7 +120,9 @@ service =
             return res.status 404 .send 'Not Found'
           { id, hash } = book
           request do
-            "#api-host/Epub/getBookFile/#id/#hash/audio.mp3"
+            method:   \GET
+            url:      "#api-host/Epub/getBookFile/#id/#hash/audio.mp3"
+            encoding: \binary
             (e, r, body) ->
               base64 = new Buffer(body)toString(\base64)
               res
