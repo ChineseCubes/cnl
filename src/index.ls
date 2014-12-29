@@ -83,6 +83,10 @@ service =
               res
                 ..type 'png'
                 ..send new Buffer body, \binary
+            | filepath is /.mp3$/
+              res
+                ..type 'mp3'
+                ..send new Buffer body, \binary
             | otherwise
               res
                 ..send 'text'
@@ -124,7 +128,7 @@ service =
             url:      "#api-host/Epub/getBookFile/#id/#hash/audio.mp3"
             encoding: \binary
             (e, r, body) ->
-              base64 = new Buffer(body)toString(\base64)
+              base64 = new Buffer(body, \binary)toString(\base64)
               res
                 .type \json
                 .send "{\"mp3\":\"data:audio/mp3;base64,#base64\"}"
