@@ -143,7 +143,7 @@ service =
           request do
             "#api-host/Epub/getBookFile/#id/#hash/audio.vtt"
             (e, r, body) ->
-              body .= replace /\ufeff/g
+              body .= replace /\ufeff/g, ''
               body .= replace /\r\n?|\n/g, '\\n'
               res
                 .type \json
