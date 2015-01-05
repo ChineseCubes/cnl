@@ -2,10 +2,10 @@
 require! {
   request
   rsvp: { Promise, all }:RSVP
-  'prelude-ls': { flatten }
+  'prelude-ls': { concat }
 }
 
-RSVP.on \error console.log
+RSVP.on \error console.error
 
 host = 'http://cnl.linode.caasih.net'
 running-as-script = not module.parent
@@ -26,16 +26,19 @@ get-page = (alias, id) -> new Promise (resolve, reject) ->
         then reject e
         else resolve JSON.parse body
 
+current-id = 0
 flat-node = (node) ->
+  node.id = current-id++
   children = node.children or []
-  delete node.children
-  flatten [node, (for c in children => flat-node c)]
+  nss = for children => flat-node ..
+  node.children = for ns in nss => ns.0.id
+  [node]concat concat nss
 
 serialize-book = (alias) ->
   get-masterpage alias
     .then (mp)    -> mp.attrs['TOTAL-PAGES']
-    .then (total) -> all (for i from 1 to total => get-page alias, i)
-    .then (pages) -> flatten (for p in pages => flat-node p)
+    .then (total) -> all (for [1 to total] => get-page alias, ..)
+    .then (pages) -> concat (for pages => flat-node ..)
 
 if running-as-script
   [,, ...books] = process.argv

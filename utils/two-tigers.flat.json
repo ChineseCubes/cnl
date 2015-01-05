@@ -13,7 +13,12 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      1,
+      4
+    ],
+    "id": 0
   },
   {
     "name": "DRAW:FRAME",
@@ -27,7 +32,11 @@
       "SVG:Y": "0cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      2
+    ],
+    "id": 1
   },
   {
     "name": "DRAW:IMAGE",
@@ -36,17 +45,28 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      3
+    ],
+    "id": 2
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 3,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      5,
+      6
+    ],
+    "id": 4
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -59,7 +79,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "1",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 5,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -78,11 +100,17 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      7
+    ],
+    "id": 6
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "id": 7,
+    "children": []
   },
   {
     "name": "DRAW:PAGE",
@@ -98,7 +126,13 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      9,
+      12,
+      16
+    ],
+    "id": 8
   },
   {
     "name": "DRAW:FRAME",
@@ -112,7 +146,11 @@
       "SVG:Y": "0cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      10
+    ],
+    "id": 9
   },
   {
     "name": "DRAW:IMAGE",
@@ -121,11 +159,17 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      11
+    ],
+    "id": 10
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 11,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -146,18 +190,30 @@
       "text-shadow": "none",
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal"
-    }
+    },
+    "children": [
+      13
+    ],
+    "id": 12
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "children": [
+      14
+    ],
+    "id": 13
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P2",
       "FO:LINE-HEIGHT": "100%"
-    }
+    },
+    "children": [
+      15
+    ],
+    "id": 14
   },
   {
     "name": "TEXT:SPAN",
@@ -166,13 +222,20 @@
       "font-size": "30pt",
       "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
     },
-    "text": "兩隻老虎"
+    "text": "兩隻老虎",
+    "id": 15,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      17,
+      18
+    ],
+    "id": 16
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -185,7 +248,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "2",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 17,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -204,7 +269,11 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      19
+    ],
+    "id": 18
   },
   {
     "name": "DRAW:TEXT-BOX",
@@ -251,35 +320,52 @@
           "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
         }
       ]
-    }
+    },
+    "children": [
+      20,
+      22
+    ],
+    "id": 19
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      21
+    ],
+    "id": 20
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "兩隻老虎"
+    "text": "兩隻老虎",
+    "id": 21,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      23
+    ],
+    "id": 22
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "Two tigers."
+    "text": "Two tigers.",
+    "id": 23,
+    "children": []
   },
   {
     "name": "DRAW:PAGE",
@@ -295,7 +381,13 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      25,
+      28,
+      32
+    ],
+    "id": 24
   },
   {
     "name": "DRAW:FRAME",
@@ -309,7 +401,11 @@
       "SVG:Y": "0cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      26
+    ],
+    "id": 25
   },
   {
     "name": "DRAW:IMAGE",
@@ -318,11 +414,17 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      27
+    ],
+    "id": 26
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 27,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -343,18 +445,30 @@
       "text-shadow": "none",
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal"
-    }
+    },
+    "children": [
+      29
+    ],
+    "id": 28
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "children": [
+      30
+    ],
+    "id": 29
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P2",
       "FO:LINE-HEIGHT": "100%"
-    }
+    },
+    "children": [
+      31
+    ],
+    "id": 30
   },
   {
     "name": "TEXT:SPAN",
@@ -363,13 +477,20 @@
       "font-size": "30pt",
       "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
     },
-    "text": "兩隻老虎"
+    "text": "兩隻老虎",
+    "id": 31,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      33,
+      34
+    ],
+    "id": 32
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -382,7 +503,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "3",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 33,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -401,7 +524,11 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      35
+    ],
+    "id": 34
   },
   {
     "name": "DRAW:TEXT-BOX",
@@ -448,35 +575,52 @@
           "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
         }
       ]
-    }
+    },
+    "children": [
+      36,
+      38
+    ],
+    "id": 35
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      37
+    ],
+    "id": 36
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "兩隻老虎"
+    "text": "兩隻老虎",
+    "id": 37,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      39
+    ],
+    "id": 38
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "Two tigers."
+    "text": "Two tigers.",
+    "id": 39,
+    "children": []
   },
   {
     "name": "DRAW:PAGE",
@@ -492,7 +636,13 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      41,
+      44,
+      48
+    ],
+    "id": 40
   },
   {
     "name": "DRAW:FRAME",
@@ -506,7 +656,11 @@
       "SVG:Y": "0cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      42
+    ],
+    "id": 41
   },
   {
     "name": "DRAW:IMAGE",
@@ -515,11 +669,17 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      43
+    ],
+    "id": 42
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 43,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -540,18 +700,30 @@
       "text-shadow": "none",
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal"
-    }
+    },
+    "children": [
+      45
+    ],
+    "id": 44
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "children": [
+      46
+    ],
+    "id": 45
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P2",
       "FO:LINE-HEIGHT": "100%"
-    }
+    },
+    "children": [
+      47
+    ],
+    "id": 46
   },
   {
     "name": "TEXT:SPAN",
@@ -560,13 +732,20 @@
       "font-size": "30pt",
       "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
     },
-    "text": "跑得快，跑得快。"
+    "text": "跑得快，跑得快。",
+    "id": 47,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      49,
+      50
+    ],
+    "id": 48
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -579,7 +758,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "4",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 49,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -598,7 +779,11 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      51
+    ],
+    "id": 50
   },
   {
     "name": "DRAW:TEXT-BOX",
@@ -653,63 +838,94 @@
           "translation": "to run/to run away/to escape/to run around (on errands etc)/(of a gas or liquid) to leak or evaporate/(verb complement) away/off"
         }
       ]
-    }
+    },
+    "children": [
+      52,
+      54,
+      56,
+      58
+    ],
+    "id": 51
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      53
+    ],
+    "id": 52
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "跑得快"
+    "text": "跑得快",
+    "id": 53,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      55
+    ],
+    "id": 54
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "Running fast,"
+    "text": "Running fast,",
+    "id": 55,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      57
+    ],
+    "id": 56
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "跑得快"
+    "text": "跑得快",
+    "id": 57,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      59
+    ],
+    "id": 58
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "running fast."
+    "text": "running fast.",
+    "id": 59,
+    "children": []
   },
   {
     "name": "DRAW:PAGE",
@@ -725,7 +941,13 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      61,
+      64,
+      68
+    ],
+    "id": 60
   },
   {
     "name": "DRAW:FRAME",
@@ -739,7 +961,11 @@
       "SVG:Y": "0cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      62
+    ],
+    "id": 61
   },
   {
     "name": "DRAW:IMAGE",
@@ -748,11 +974,17 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      63
+    ],
+    "id": 62
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 63,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -773,18 +1005,30 @@
       "text-shadow": "none",
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal"
-    }
+    },
+    "children": [
+      65
+    ],
+    "id": 64
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "children": [
+      66
+    ],
+    "id": 65
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P2",
       "FO:LINE-HEIGHT": "100%"
-    }
+    },
+    "children": [
+      67
+    ],
+    "id": 66
   },
   {
     "name": "TEXT:SPAN",
@@ -793,13 +1037,20 @@
       "font-size": "30pt",
       "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
     },
-    "text": "一隻沒有耳朵"
+    "text": "一隻沒有耳朵",
+    "id": 67,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      69,
+      70
+    ],
+    "id": 68
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -812,7 +1063,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "5",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 69,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -831,7 +1084,11 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      71
+    ],
+    "id": 70
   },
   {
     "name": "DRAW:TEXT-BOX",
@@ -910,35 +1167,52 @@
           "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
         }
       ]
-    }
+    },
+    "children": [
+      72,
+      74
+    ],
+    "id": 71
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      73
+    ],
+    "id": 72
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "一隻沒有耳朵"
+    "text": "一隻沒有耳朵",
+    "id": 73,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      75
+    ],
+    "id": 74
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "One doesn't have ears."
+    "text": "One doesn't have ears.",
+    "id": 75,
+    "children": []
   },
   {
     "name": "DRAW:PAGE",
@@ -954,7 +1228,13 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      77,
+      80,
+      84
+    ],
+    "id": 76
   },
   {
     "name": "DRAW:FRAME",
@@ -968,7 +1248,11 @@
       "SVG:Y": "0cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      78
+    ],
+    "id": 77
   },
   {
     "name": "DRAW:IMAGE",
@@ -977,11 +1261,17 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      79
+    ],
+    "id": 78
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 79,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -1002,18 +1292,30 @@
       "text-shadow": "none",
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal"
-    }
+    },
+    "children": [
+      81
+    ],
+    "id": 80
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "children": [
+      82
+    ],
+    "id": 81
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P2",
       "FO:LINE-HEIGHT": "100%"
-    }
+    },
+    "children": [
+      83
+    ],
+    "id": 82
   },
   {
     "name": "TEXT:SPAN",
@@ -1022,13 +1324,20 @@
       "font-size": "30pt",
       "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
     },
-    "text": "一隻沒有尾巴"
+    "text": "一隻沒有尾巴",
+    "id": 83,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      85,
+      86
+    ],
+    "id": 84
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -1041,7 +1350,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "6",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 85,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -1060,7 +1371,11 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      87
+    ],
+    "id": 86
   },
   {
     "name": "DRAW:TEXT-BOX",
@@ -1163,35 +1478,52 @@
           "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
         }
       ]
-    }
+    },
+    "children": [
+      88,
+      90
+    ],
+    "id": 87
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      89
+    ],
+    "id": 88
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "一隻沒有尾巴"
+    "text": "一隻沒有尾巴",
+    "id": 89,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      91
+    ],
+    "id": 90
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "One doesn't have a tail."
+    "text": "One doesn't have a tail.",
+    "id": 91,
+    "children": []
   },
   {
     "name": "DRAW:PAGE",
@@ -1207,7 +1539,13 @@
       "FO:PAGE-WIDTH": "28cm",
       "FO:PAGE-HEIGHT": "21cm",
       "STYLE:PRINT-ORIENTATION": "landscape"
-    }
+    },
+    "children": [
+      93,
+      96,
+      100
+    ],
+    "id": 92
   },
   {
     "name": "DRAW:FRAME",
@@ -1221,7 +1559,11 @@
       "SVG:Y": "0.002cm",
       "textarea-vertical-align": "middle",
       "opacity": 1
-    }
+    },
+    "children": [
+      94
+    ],
+    "id": 93
   },
   {
     "name": "DRAW:IMAGE",
@@ -1230,11 +1572,17 @@
       "XLINK:TYPE": "simple",
       "XLINK:SHOW": "embed",
       "XLINK:ACTUATE": "onLoad"
-    }
+    },
+    "children": [
+      95
+    ],
+    "id": 94
   },
   {
     "name": "TEXT:P",
-    "attrs": []
+    "attrs": [],
+    "id": 95,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -1255,18 +1603,30 @@
       "text-shadow": "none",
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal"
-    }
+    },
+    "children": [
+      97
+    ],
+    "id": 96
   },
   {
     "name": "DRAW:TEXT-BOX",
-    "attrs": []
+    "attrs": [],
+    "children": [
+      98
+    ],
+    "id": 97
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P2",
       "FO:LINE-HEIGHT": "100%"
-    }
+    },
+    "children": [
+      99
+    ],
+    "id": 98
   },
   {
     "name": "TEXT:SPAN",
@@ -1275,13 +1635,20 @@
       "font-size": "30pt",
       "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
     },
-    "text": "真奇怪，真奇怪。"
+    "text": "真奇怪，真奇怪。",
+    "id": 99,
+    "children": []
   },
   {
     "name": "PRESENTATION:NOTES",
     "attrs": {
       "DRAW:STYLE-NAME": "dp2"
-    }
+    },
+    "children": [
+      101,
+      102
+    ],
+    "id": 100
   },
   {
     "name": "DRAW:PAGE-THUMBNAIL",
@@ -1294,7 +1661,9 @@
       "SVG:Y": "2.257cm",
       "DRAW:PAGE-NUMBER": "7",
       "PRESENTATION:CLASS": "page"
-    }
+    },
+    "id": 101,
+    "children": []
   },
   {
     "name": "DRAW:FRAME",
@@ -1313,7 +1682,11 @@
       "font-weight": "normal",
       "font-family": "'Liberation Sans';微軟正黑體;Mangal",
       "background-color": "#ffffff"
-    }
+    },
+    "children": [
+      103
+    ],
+    "id": 102
   },
   {
     "name": "DRAW:TEXT-BOX",
@@ -1360,62 +1733,93 @@
           "translation": "really/truly/indeed/real/true/genuine"
         }
       ]
-    }
+    },
+    "children": [
+      104,
+      106,
+      108,
+      110
+    ],
+    "id": 103
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      105
+    ],
+    "id": 104
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "真奇怪"
+    "text": "真奇怪",
+    "id": 105,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      107
+    ],
+    "id": 106
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "Really strange,"
+    "text": "Really strange,",
+    "id": 107,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      109
+    ],
+    "id": 108
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "真奇怪"
+    "text": "真奇怪",
+    "id": 109,
+    "children": []
   },
   {
     "name": "TEXT:P",
     "attrs": {
       "TEXT:STYLE-NAME": "P4",
       "text-align": "left"
-    }
+    },
+    "children": [
+      111
+    ],
+    "id": 110
   },
   {
     "name": "TEXT:SPAN",
     "attrs": {
       "TEXT:STYLE-NAME": "T2"
     },
-    "text": "really strange."
+    "text": "really strange.",
+    "id": 111,
+    "children": []
   }
 ]
