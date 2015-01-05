@@ -1,0 +1,1421 @@
+[
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page1",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "28cm",
+      "SVG:HEIGHT": "21cm",
+      "SVG:X": "0cm",
+      "SVG:Y": "0cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/1000000000000400000003001516D880.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "1",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "PRESENTATION:PLACEHOLDER": "true",
+      "font-size": "20pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page2",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設_5f_",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "28cm",
+      "SVG:HEIGHT": "21cm",
+      "SVG:X": "0cm",
+      "SVG:Y": "0cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/10000000000004000000030029BD71C5.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr2",
+      "DRAW:TEXT-STYLE-NAME": "P3",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "11.2cm",
+      "SVG:HEIGHT": "3.506cm",
+      "SVG:X": "0.4cm",
+      "SVG:Y": "16.494cm",
+      "PRESENTATION:CLASS": "title",
+      "PRESENTATION:USER-TRANSFORMED": "true",
+      "textarea-vertical-align": "middle",
+      "text-align": "center",
+      "font-size": "44pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P2",
+      "FO:LINE-HEIGHT": "100%"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T1",
+      "font-size": "30pt",
+      "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
+    },
+    "text": "兩隻老虎"
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "2",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr3",
+      "DRAW:TEXT-STYLE-NAME": "P5",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "font-size": "28.1000003814697pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": {
+      "data": [
+        {
+          "id": "10097",
+          "traditional": "兩",
+          "simplified": "两",
+          "pinyin_numbers": "liang3",
+          "pinyin_marks": "liǎng",
+          "translation": "two/both/some/a few/tael, unit of weight equal to 50 grams (modern) or 1⁄16 of a catty 斤[jin1] (old)"
+        },
+        {
+          "id": "77924",
+          "traditional": "老",
+          "simplified": "老",
+          "pinyin_numbers": "lao3",
+          "pinyin_marks": "lǎo",
+          "translation": "prefix used before the surname of a person or a numeral indicating the order of birth of the children in a family or to indicate affection or familiarity/old (of people)/venerable (person)/experienced/of long standing/always/all the time/of the past/very/outdated/(of meat etc) tough"
+        },
+        {
+          "id": "78089",
+          "traditional": "老虎",
+          "simplified": "老虎",
+          "pinyin_numbers": "lao3 hu3",
+          "pinyin_marks": "lǎo hǔ",
+          "translation": "tiger/CL:隻|只[zhi1]"
+        },
+        {
+          "id": "85057",
+          "traditional": "虎",
+          "simplified": "虎",
+          "pinyin_numbers": "hu3",
+          "pinyin_marks": "hǔ",
+          "translation": "tiger/CL:隻|只[zhi1]"
+        },
+        {
+          "id": "101825",
+          "traditional": "隻",
+          "simplified": "只",
+          "pinyin_numbers": "zhi1",
+          "pinyin_marks": "zhī",
+          "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
+        }
+      ]
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "兩隻老虎"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "Two tigers."
+  },
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page3",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設_5f_",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "28cm",
+      "SVG:HEIGHT": "21cm",
+      "SVG:X": "0cm",
+      "SVG:Y": "0cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/1000000000000400000003003D93A5A4.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr2",
+      "DRAW:TEXT-STYLE-NAME": "P3",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "8.999cm",
+      "SVG:HEIGHT": "3.506cm",
+      "SVG:X": "16.201cm",
+      "SVG:Y": "1.894cm",
+      "PRESENTATION:CLASS": "title",
+      "PRESENTATION:USER-TRANSFORMED": "true",
+      "textarea-vertical-align": "middle",
+      "text-align": "center",
+      "font-size": "44pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P2",
+      "FO:LINE-HEIGHT": "100%"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T1",
+      "font-size": "30pt",
+      "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
+    },
+    "text": "兩隻老虎"
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "3",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr3",
+      "DRAW:TEXT-STYLE-NAME": "P6",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "font-size": "28.1000003814697pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": {
+      "data": [
+        {
+          "id": "10097",
+          "traditional": "兩",
+          "simplified": "两",
+          "pinyin_numbers": "liang3",
+          "pinyin_marks": "liǎng",
+          "translation": "two/both/some/a few/tael, unit of weight equal to 50 grams (modern) or 1⁄16 of a catty 斤[jin1] (old)"
+        },
+        {
+          "id": "77924",
+          "traditional": "老",
+          "simplified": "老",
+          "pinyin_numbers": "lao3",
+          "pinyin_marks": "lǎo",
+          "translation": "prefix used before the surname of a person or a numeral indicating the order of birth of the children in a family or to indicate affection or familiarity/old (of people)/venerable (person)/experienced/of long standing/always/all the time/of the past/very/outdated/(of meat etc) tough"
+        },
+        {
+          "id": "78089",
+          "traditional": "老虎",
+          "simplified": "老虎",
+          "pinyin_numbers": "lao3 hu3",
+          "pinyin_marks": "lǎo hǔ",
+          "translation": "tiger/CL:隻|只[zhi1]"
+        },
+        {
+          "id": "85057",
+          "traditional": "虎",
+          "simplified": "虎",
+          "pinyin_numbers": "hu3",
+          "pinyin_marks": "hǔ",
+          "translation": "tiger/CL:隻|只[zhi1]"
+        },
+        {
+          "id": "101825",
+          "traditional": "隻",
+          "simplified": "只",
+          "pinyin_numbers": "zhi1",
+          "pinyin_marks": "zhī",
+          "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
+        }
+      ]
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "兩隻老虎"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "Two tigers."
+  },
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page4",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設_5f_",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "28cm",
+      "SVG:HEIGHT": "21cm",
+      "SVG:X": "0cm",
+      "SVG:Y": "0cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/100000000000040000000300976D7B12.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr2",
+      "DRAW:TEXT-STYLE-NAME": "P3",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "10.2cm",
+      "SVG:HEIGHT": "3.506cm",
+      "SVG:X": "18cm",
+      "SVG:Y": "2.6cm",
+      "PRESENTATION:CLASS": "title",
+      "PRESENTATION:USER-TRANSFORMED": "true",
+      "textarea-vertical-align": "middle",
+      "text-align": "center",
+      "font-size": "44pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P2",
+      "FO:LINE-HEIGHT": "100%"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T1",
+      "font-size": "30pt",
+      "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
+    },
+    "text": "跑得快，跑得快。"
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "4",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr3",
+      "DRAW:TEXT-STYLE-NAME": "P6",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "font-size": "28.1000003814697pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": {
+      "data": [
+        {
+          "id": "35624",
+          "traditional": "得",
+          "simplified": "得",
+          "pinyin_numbers": "de2",
+          "pinyin_marks": "dé",
+          "translation": "to obtain/to get/to gain/to catch (a disease)/proper/suitable/proud/contented/to allow/to permit/ready/finished"
+        },
+        {
+          "id": "35625",
+          "traditional": "得",
+          "simplified": "得",
+          "pinyin_numbers": "de5",
+          "pinyin_marks": "de",
+          "translation": "structural particle: used after a verb (or adjective as main verb), linking it to following phrase indicating effect, degree, possibility etc"
+        },
+        {
+          "id": "35626",
+          "traditional": "得",
+          "simplified": "得",
+          "pinyin_numbers": "dei3",
+          "pinyin_marks": "děi",
+          "translation": "to have to/must/ought to/to need to"
+        },
+        {
+          "id": "36488",
+          "traditional": "快",
+          "simplified": "快",
+          "pinyin_numbers": "kuai4",
+          "pinyin_marks": "kuài",
+          "translation": "rapid/quick/speed/rate/soon/almost/to make haste/clever/sharp (of knives or wits)/forthright/plain-spoken/gratified/pleased/pleasant"
+        },
+        {
+          "id": "92280",
+          "traditional": "跑",
+          "simplified": "跑",
+          "pinyin_numbers": "pao2",
+          "pinyin_marks": "páo",
+          "translation": "(of an animal) to paw (the ground)"
+        },
+        {
+          "id": "92281",
+          "traditional": "跑",
+          "simplified": "跑",
+          "pinyin_numbers": "pao3",
+          "pinyin_marks": "pǎo",
+          "translation": "to run/to run away/to escape/to run around (on errands etc)/(of a gas or liquid) to leak or evaporate/(verb complement) away/off"
+        }
+      ]
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "跑得快"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "Running fast,"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "跑得快"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "running fast."
+  },
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page5",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設_5f_",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "28cm",
+      "SVG:HEIGHT": "21cm",
+      "SVG:X": "0cm",
+      "SVG:Y": "0cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/1000000000000400000003009E0B9B29.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr2",
+      "DRAW:TEXT-STYLE-NAME": "P3",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "9.399cm",
+      "SVG:HEIGHT": "3.506cm",
+      "SVG:X": "18.2cm",
+      "SVG:Y": "2.2cm",
+      "PRESENTATION:CLASS": "title",
+      "PRESENTATION:USER-TRANSFORMED": "true",
+      "textarea-vertical-align": "middle",
+      "text-align": "center",
+      "font-size": "44pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P2",
+      "FO:LINE-HEIGHT": "100%"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T1",
+      "font-size": "30pt",
+      "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
+    },
+    "text": "一隻沒有耳朵"
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "5",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr3",
+      "DRAW:TEXT-STYLE-NAME": "P6",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "font-size": "28.1000003814697pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": {
+      "data": [
+        {
+          "id": "216",
+          "traditional": "一",
+          "simplified": "一",
+          "pinyin_numbers": "yi1",
+          "pinyin_marks": "yī",
+          "translation": "one/1/single/a (article)/as soon as/entire/whole/all/throughout/&quot;one&quot; radical in Chinese characters (Kangxi radical 1)/also pr. [yao1] for greater clarity when spelling out numbers digit by digit"
+        },
+        {
+          "id": "48455",
+          "traditional": "有",
+          "simplified": "有",
+          "pinyin_numbers": "you3",
+          "pinyin_marks": "yǒu",
+          "translation": "to have/there is/there are/to exist/to be"
+        },
+        {
+          "id": "49391",
+          "traditional": "朵",
+          "simplified": "朵",
+          "pinyin_numbers": "duo3",
+          "pinyin_marks": "duǒ",
+          "translation": "flower/earlobe/fig. item on both sides/classifier for flowers, clouds etc"
+        },
+        {
+          "id": "55844",
+          "traditional": "沒",
+          "simplified": "没",
+          "pinyin_numbers": "mei2",
+          "pinyin_marks": "méi",
+          "translation": "(negative prefix for verbs)/have not/not"
+        },
+        {
+          "id": "55845",
+          "traditional": "沒",
+          "simplified": "没",
+          "pinyin_numbers": "mo4",
+          "pinyin_marks": "mò",
+          "translation": "drowned/to end/to die/to inundate"
+        },
+        {
+          "id": "55878",
+          "traditional": "沒有",
+          "simplified": "没有",
+          "pinyin_numbers": "mei2 you3",
+          "pinyin_marks": "méi yǒu",
+          "translation": "haven't/hasn't/doesn't exist/to not have/to not be"
+        },
+        {
+          "id": "78329",
+          "traditional": "耳",
+          "simplified": "耳",
+          "pinyin_numbers": "er3",
+          "pinyin_marks": "ěr",
+          "translation": "ear/handle (archaeology)/and that is all (classical Chinese)"
+        },
+        {
+          "id": "78347",
+          "traditional": "耳朵",
+          "simplified": "耳朵",
+          "pinyin_numbers": "er3 duo5",
+          "pinyin_marks": "ěr duo",
+          "translation": "ear/CL:隻|只[zhi1],個|个[ge4],對|对[dui4]/handle (on a cup)"
+        },
+        {
+          "id": "101825",
+          "traditional": "隻",
+          "simplified": "只",
+          "pinyin_numbers": "zhi1",
+          "pinyin_marks": "zhī",
+          "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
+        }
+      ]
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "一隻沒有耳朵"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "One doesn't have ears."
+  },
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page6",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設_5f_",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "28cm",
+      "SVG:HEIGHT": "21cm",
+      "SVG:X": "0cm",
+      "SVG:Y": "0cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/100000000000040000000300F44F7D47.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr2",
+      "DRAW:TEXT-STYLE-NAME": "P3",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "7.799cm",
+      "SVG:HEIGHT": "3.506cm",
+      "SVG:X": "0.207cm",
+      "SVG:Y": "9.494cm",
+      "PRESENTATION:CLASS": "title",
+      "PRESENTATION:USER-TRANSFORMED": "true",
+      "textarea-vertical-align": "middle",
+      "text-align": "center",
+      "font-size": "44pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P2",
+      "FO:LINE-HEIGHT": "100%"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T1",
+      "font-size": "30pt",
+      "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
+    },
+    "text": "一隻沒有尾巴"
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "6",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr3",
+      "DRAW:TEXT-STYLE-NAME": "P6",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "font-size": "28.1000003814697pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": {
+      "data": [
+        {
+          "id": "216",
+          "traditional": "一",
+          "simplified": "一",
+          "pinyin_numbers": "yi1",
+          "pinyin_marks": "yī",
+          "translation": "one/1/single/a (article)/as soon as/entire/whole/all/throughout/&quot;one&quot; radical in Chinese characters (Kangxi radical 1)/also pr. [yao1] for greater clarity when spelling out numbers digit by digit"
+        },
+        {
+          "id": "31164",
+          "traditional": "尾",
+          "simplified": "尾",
+          "pinyin_numbers": "wei3",
+          "pinyin_marks": "wěi",
+          "translation": "tail/remainder/remnant/extremity/sixth of the 28 constellations/classifier for fish"
+        },
+        {
+          "id": "31165",
+          "traditional": "尾",
+          "simplified": "尾",
+          "pinyin_numbers": "yi3",
+          "pinyin_marks": "yǐ",
+          "translation": "horse's tail/pointed posterior section of a locust etc"
+        },
+        {
+          "id": "31168",
+          "traditional": "尾巴",
+          "simplified": "尾巴",
+          "pinyin_numbers": "wei3 ba5",
+          "pinyin_marks": "wěi ba",
+          "translation": "tail"
+        },
+        {
+          "id": "31169",
+          "traditional": "尾巴",
+          "simplified": "尾巴",
+          "pinyin_numbers": "yi3 ba5",
+          "pinyin_marks": "yǐ ba",
+          "translation": "(coll.) tail (of an animal)"
+        },
+        {
+          "id": "32539",
+          "traditional": "巴",
+          "simplified": "巴",
+          "pinyin_numbers": "Ba1",
+          "pinyin_marks": "Bā",
+          "translation": "Ba state during Zhou dynasty (in east of modern Sichuan)/abbr. for east Sichuan or Chongqing/surname Ba/abbr. for Palestine or Palestinian/abbr. for Pakistan"
+        },
+        {
+          "id": "32540",
+          "traditional": "巴",
+          "simplified": "巴",
+          "pinyin_numbers": "ba1",
+          "pinyin_marks": "bā",
+          "translation": "to long for/to wish/to cling to/to stick to/sth that sticks/close to/next to/spread open/informal abbr. for bus 巴士[ba1 shi4]/bar (unit of pressure)/nominalizing suffix on certain nouns, such as 尾巴[wei3 ba5], tail"
+        },
+        {
+          "id": "48455",
+          "traditional": "有",
+          "simplified": "有",
+          "pinyin_numbers": "you3",
+          "pinyin_marks": "yǒu",
+          "translation": "to have/there is/there are/to exist/to be"
+        },
+        {
+          "id": "55844",
+          "traditional": "沒",
+          "simplified": "没",
+          "pinyin_numbers": "mei2",
+          "pinyin_marks": "méi",
+          "translation": "(negative prefix for verbs)/have not/not"
+        },
+        {
+          "id": "55845",
+          "traditional": "沒",
+          "simplified": "没",
+          "pinyin_numbers": "mo4",
+          "pinyin_marks": "mò",
+          "translation": "drowned/to end/to die/to inundate"
+        },
+        {
+          "id": "55878",
+          "traditional": "沒有",
+          "simplified": "没有",
+          "pinyin_numbers": "mei2 you3",
+          "pinyin_marks": "méi yǒu",
+          "translation": "haven't/hasn't/doesn't exist/to not have/to not be"
+        },
+        {
+          "id": "101825",
+          "traditional": "隻",
+          "simplified": "只",
+          "pinyin_numbers": "zhi1",
+          "pinyin_marks": "zhī",
+          "translation": "classifier for birds and certain animals, one of a pair, some utensils, vessels etc"
+        }
+      ]
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "一隻沒有尾巴"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "One doesn't have a tail."
+  },
+  {
+    "name": "DRAW:PAGE",
+    "attrs": {
+      "DRAW:NAME": "page7",
+      "DRAW:STYLE-NAME": "dp1",
+      "DRAW:MASTER-PAGE-NAME": "預設_5f_",
+      "PRESENTATION:PRESENTATION-PAGE-LAYOUT-NAME": "AL1T0",
+      "FO:MARGIN-TOP": "0cm",
+      "FO:MARGIN-BOTTOM": "0cm",
+      "FO:MARGIN-LEFT": "0cm",
+      "FO:MARGIN-RIGHT": "0cm",
+      "FO:PAGE-WIDTH": "28cm",
+      "FO:PAGE-HEIGHT": "21cm",
+      "STYLE:PRINT-ORIENTATION": "landscape"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr1",
+      "DRAW:TEXT-STYLE-NAME": "P1",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "27.996cm",
+      "SVG:HEIGHT": "20.996cm",
+      "SVG:X": "0.002cm",
+      "SVG:Y": "0.002cm",
+      "textarea-vertical-align": "middle",
+      "opacity": 1
+    }
+  },
+  {
+    "name": "DRAW:IMAGE",
+    "attrs": {
+      "XLINK:HREF": "Pictures/1000000000000400000003002BD776CC.jpg",
+      "XLINK:TYPE": "simple",
+      "XLINK:SHOW": "embed",
+      "XLINK:ACTUATE": "onLoad"
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": []
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr2",
+      "DRAW:TEXT-STYLE-NAME": "P3",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "9.999cm",
+      "SVG:HEIGHT": "3.506cm",
+      "SVG:X": "15.8cm",
+      "SVG:Y": "1.594cm",
+      "PRESENTATION:CLASS": "title",
+      "PRESENTATION:USER-TRANSFORMED": "true",
+      "textarea-vertical-align": "middle",
+      "text-align": "center",
+      "font-size": "44pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": []
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P2",
+      "FO:LINE-HEIGHT": "100%"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T1",
+      "font-size": "30pt",
+      "font-family": "'Noto Sans S Chinese Medium';'Noto Sans S Chinese Medium'"
+    },
+    "text": "真奇怪，真奇怪。"
+  },
+  {
+    "name": "PRESENTATION:NOTES",
+    "attrs": {
+      "DRAW:STYLE-NAME": "dp2"
+    }
+  },
+  {
+    "name": "DRAW:PAGE-THUMBNAIL",
+    "attrs": {
+      "DRAW:STYLE-NAME": "gr2",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "14.848cm",
+      "SVG:HEIGHT": "11.136cm",
+      "SVG:X": "3.075cm",
+      "SVG:Y": "2.257cm",
+      "DRAW:PAGE-NUMBER": "7",
+      "PRESENTATION:CLASS": "page"
+    }
+  },
+  {
+    "name": "DRAW:FRAME",
+    "attrs": {
+      "PRESENTATION:STYLE-NAME": "pr3",
+      "DRAW:TEXT-STYLE-NAME": "P6",
+      "DRAW:LAYER": "layout",
+      "SVG:WIDTH": "16.799cm",
+      "SVG:HEIGHT": "13.364cm",
+      "SVG:X": "2.1cm",
+      "SVG:Y": "14.107cm",
+      "PRESENTATION:CLASS": "notes",
+      "font-size": "28.1000003814697pt",
+      "font-style": "normal",
+      "text-shadow": "none",
+      "font-weight": "normal",
+      "font-family": "'Liberation Sans';微軟正黑體;Mangal",
+      "background-color": "#ffffff"
+    }
+  },
+  {
+    "name": "DRAW:TEXT-BOX",
+    "attrs": {
+      "data": [
+        {
+          "id": "26095",
+          "traditional": "奇",
+          "simplified": "奇",
+          "pinyin_numbers": "ji1",
+          "pinyin_marks": "jī",
+          "translation": "odd (number)"
+        },
+        {
+          "id": "26096",
+          "traditional": "奇",
+          "simplified": "奇",
+          "pinyin_numbers": "qi2",
+          "pinyin_marks": "qí",
+          "translation": "strange/odd/weird/wonderful/surprisingly/unusually"
+        },
+        {
+          "id": "26114",
+          "traditional": "奇怪",
+          "simplified": "奇怪",
+          "pinyin_numbers": "qi2 guai4",
+          "pinyin_marks": "qí guài",
+          "translation": "strange/odd/to marvel/to be baffled"
+        },
+        {
+          "id": "36890",
+          "traditional": "怪",
+          "simplified": "怪",
+          "pinyin_numbers": "guai4",
+          "pinyin_marks": "guài",
+          "translation": "bewildering/odd/strange/uncanny/devil/monster/to wonder at/to blame/quite/rather"
+        },
+        {
+          "id": "69003",
+          "traditional": "真",
+          "simplified": "真",
+          "pinyin_numbers": "zhen1",
+          "pinyin_marks": "zhēn",
+          "translation": "really/truly/indeed/real/true/genuine"
+        }
+      ]
+    }
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "真奇怪"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "Really strange,"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "真奇怪"
+  },
+  {
+    "name": "TEXT:P",
+    "attrs": {
+      "TEXT:STYLE-NAME": "P4",
+      "text-align": "left"
+    }
+  },
+  {
+    "name": "TEXT:SPAN",
+    "attrs": {
+      "TEXT:STYLE-NAME": "T2"
+    },
+    "text": "really strange."
+  }
+]
