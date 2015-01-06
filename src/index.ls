@@ -24,7 +24,6 @@ running-as-script = not module.parent
 trim              = -> it.replace /^\s+|\s+$/, ''
 hyphenated        = -> it |> trim |> split ' ' |> map (.toLowerCase!) |> join '-'
 
-
 generate-dict = ({ id, hash, alias }) -> new Promise (resolve, reject) ->
   get-file = (filepath) -> new Promise (resolve, reject) ->
     request do
@@ -49,49 +48,91 @@ generate-dict = ({ id, hash, alias }) -> new Promise (resolve, reject) ->
           console.log "dict.json: #alias"
           resolve moedict chars
 
+Books =
+  aliases: []
+  dicts:   {}
+  find:     (alias) -> @aliases |> find (.alias is alias)
+  findById: (id)    -> @aliases |> find (.id is id) # FIXME: slow?
+  init: -> new Promise (resolve, reject) ~>
+    console.log "[#{moment!format!}] init books"
+    request do
+      "#api-host/Epub/getBooklist"
+      (e, r, body) ~>
+        | e                     => reject e
+        | r.statusCode isnt 200 => reject new Error "status: #{r.statusCode}"
+        | otherwise
+          for book in JSON.parse body
+            book <<<
+              id:        +book.id
+              alias:     hyphenated book.title
+              timestamp: moment book.last_update .valueOf!
+            @aliases.push book
+          @aliases.sort (a, b) -> a.id - b.id
+          ps = for let book in Books.aliases
+            @dicts[book.alias] = generate-dict book
+          resolve ps
+  update: -> new Promise (resolve, reject) ~>
+    console.log "[#{moment!format!}] update books"
+    request do
+      "#api-host/Epub/getBooklist"
+      (e, r, body) ~>
+        | e                     => reject e
+        | r.statusCode isnt 200 => reject new Error "status: #{r.statusCode}"
+        | otherwise
+          ps = for book in JSON.parse body
+            book <<<
+              id:        +book.id
+              alias:     hyphenated book.title
+              timestamp: moment book.last_update .valueOf!
+            old = @findById book.id
+            if old           is   undefined      or
+               old.hash      isnt book.hash      or
+               old.timestamp isnt book.timestamp
+              old <<< book
+              @dicts[old.alias] = generate-dict old
+            @dicts[old.alias]
+          resolve ps
+
+ask-apis-beta = (alias, filepath, req, res) ->
+  book = Books.find alias
+  unless book
+    return res.status 404 .send 'Not Found'
+  { id, hash } = book
+  request do
+    method:   \GET
+    url:      "#api-host/Epub/getBookFile/#id/#hash/#filepath"
+    encoding: \binary
+    (e, r, body) !-> # prevent switch return
+      if e
+        return res.status 500 .send 'Internal Error'
+      if r.statusCode isnt 200
+        return res.status r.statusCode .send '?'
+      switch
+        | filepath is /.json$/
+          res
+            ..type 'json'
+            ..send body
+        | filepath is /.jpg/
+          res
+            ..type 'jpg'
+            ..send new Buffer body, \binary
+        | filepath is /.png$/
+          res
+            ..type 'png'
+            ..send new Buffer body, \binary
+        | filepath is /.mp3$/
+          res
+            ..type 'mp3'
+            ..send new Buffer body, \binary
+        | otherwise
+          res
+            ..send 'text'
+            ..send body
+
 service =
   msg:   'you have control'
   stop:  not-running
   start: (done) !->
-    aliases = []
-    dicts = {}
-
-    ask-apis-beta = (alias, filepath, req, res) ->
-      book = aliases |> find (.alias is alias)
-      unless book
-        return res.status 404 .send 'Not Found'
-      { id, hash } = book
-      request do
-        method:   \GET
-        url:      "#api-host/Epub/getBookFile/#id/#hash/#filepath"
-        encoding: \binary
-        (e, r, body) !-> # prevent switch return
-          if e
-            return res.status 500 .send 'Internal Error'
-          if r.statusCode isnt 200
-            return res.status r.statusCode .send '?'
-          switch
-            | filepath is /.json$/
-              res
-                ..type 'json'
-                ..send body
-            | filepath is /.jpg/
-              res
-                ..type 'jpg'
-                ..send new Buffer body, \binary
-            | filepath is /.png$/
-              res
-                ..type 'png'
-                ..send new Buffer body, \binary
-            | filepath is /.mp3$/
-              res
-                ..type 'mp3'
-                ..send new Buffer body, \binary
-            | otherwise
-              res
-                ..send 'text'
-                ..send body
-
     start = !->
       (app = express!)
         #.use multer dest: path.resolve 'uploads'
@@ -99,27 +140,25 @@ service =
         .get '/' (req, res) ->
           res.send service.msg
         .get '/books/' (req, res) ->
-          res.send aliases
+          res.send Books.aliases
         .get '/books/:alias/' (req, res) ->
           { alias } = req.params
           ask-apis-beta alias, 'masterpage.json', req, res
         .get '/books/:alias/dict.json' (req, res) ->
           { alias } = req.params
-          book = aliases |> find (.alias is alias)
+          book = Books.find alias
           unless book
             return res.status 404 .send 'Not Found'
-          dicts[alias]then -> res.json it
+          Books.dicts[alias]then -> res.json it
         .put '/books/:alias/dict.json' (req, res) ->
           { alias } = req.params
-          book = aliases |> find (.alias is alias)
+          book = Books.find alias
           unless book
             return res.status 404 .send 'Not Found'
-          generate-dict book .then ->
-            dicts[book.alias] = it
-            res.send 'Ok'
+          (Books.dicts[alias] = generate-dict book)then -> res.send it
         .get '/books/:alias/audio.mp3.json' (req, res) ->
           { alias } = req.params
-          book = aliases |> find (.alias is alias)
+          book = Books.find alias
           unless book
             return res.status 404 .send 'Not Found'
           { id, hash } = book
@@ -134,7 +173,7 @@ service =
                 .send "{\"mp3\":\"data:audio/mp3;base64,#base64\"}"
         .get '/books/:alias/audio.vtt.json' (req, res) ->
           { alias } = req.params
-          book = aliases |> find (.alias is alias)
+          book = Books.find alias
           unless book
             return res.status 404 .send 'Not Found'
           { id, hash } = book
@@ -161,20 +200,12 @@ service =
           console.log "listening at http://#address:#port" if running-as-script
           done?!
 
-    ###
-    # main
-    request do
-      "#api-host/Epub/getBooklist"
-      (err, res, body) ->
-        for book in JSON.parse body
-          book <<<
-            alias: hyphenated book.title
-            timestamp: moment book.last_update .valueOf!
-          aliases.push book
-        aliases.sort (a, b) -> +a.id - +b.id
-        for let book in aliases
-          dicts[book.alias] := generate-dict book
-        start!
+    Books.init!then ->
+      start!
+      interval = 60000ms
+      update = ->
+        Books.update!then -> all it .then -> setTimeout update, interval
+      all it .then -> setTimeout update, interval
 
 if running-as-script
   then service.start!
