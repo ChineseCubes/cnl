@@ -6,6 +6,8 @@ require! {
   '../src/codepoints': codepoints
   '../src/moedict':    moedict
   '../src/webvtt':     webvtt
+  '../src/data/utils':
+    { unslash, hyphenate, camelize, namesplit, ps-noto-name }
 }
 
 service = require '../lib'
@@ -54,6 +56,40 @@ describe 'utils' (,) ->
         (str) ->
           str.should.be.exactly '{"webvtt":"WEBVTT\\n\\n1\\n00:00:00.000 --> 00:00:02.490\\n我想擁抱頑皮的猴子\\n\\n2\\n00:00:02.490 --> 00:00:05.075\\n我想擁抱懶惰的樹懶\\n\\n"}'
           done!
+
+  describe 'unslash' (,) ->
+    it 'should remove last /' ->
+      unslash 'foobar/' .should.be.exactly 'foobar'
+
+  describe 'hyphenate' (,) ->
+    it 'should split words with -' ->
+      hyphenate '' .should.be.exactly ''
+      hyphenate 'fOo Bar' .should.be.exactly 'foo-bar'
+      hyphenate 'foo - bar' .should.be.exactly 'foo---bar'
+
+  describe 'camelize' (,) ->
+    it 'should camelize and concat words' ->
+      camelize '' .should.be.exactly ''
+      camelize '  foo  bar' .should.be.exactly 'fooBar'
+      camelize 'foo-bar  ' .should.be.exactly 'fooBar'
+
+  describe 'namesplit' (,) ->
+    it 'should split the name with namespace' ->
+      { namespace, name } = namesplit 'FOO:BAR'
+      namespace.should.be.exactly 'foo'
+      name.should.be.exactly 'bar'
+      { namespace, name } = namesplit 'bar'
+      should namespace .be.not.ok
+      name.should.be.exactly 'bar'
+
+  describe 'ps-noto-name' (,) ->
+    it 'should give the postscript name of a Noto Sans Chinese font' ->
+      ps-noto-name 'Noto Sans T Chinese'
+        .should.be.exactly 'NotoSansHant'
+      ps-noto-name 'Noto Sans T Chinese Regular'
+        .should.be.exactly 'NotoSansHant-Regular'
+      ps-noto-name 'Noto Sans S Chinese Regular'
+        .should.be.exactly 'NotoSansHans-Regular'
 
 describe 'API endpoints' (,) ->
   samples =

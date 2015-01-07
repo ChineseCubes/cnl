@@ -9,6 +9,7 @@ require! {
   'prelude-ls': { filter, split, join, map, find }
   './codepoints': codepoints
   './moedict':    moedict
+  './data/utils': { hyphenate }
 }
 
 ###
@@ -47,8 +48,6 @@ RSVP.on \error -> logger.error it
 ###
 # helpers
 running-as-script = not module.parent
-trim              = -> it.replace /^\s+|\s+$/, ''
-hyphenated        = -> it |> trim |> split ' ' |> map (.toLowerCase!) |> join '-'
 
 generate-dict = ({ id, hash, alias }) -> new Promise (resolve, reject) ->
   get-file = (filepath) -> new Promise (resolve, reject) ->
@@ -90,7 +89,7 @@ Books =
           for book in JSON.parse body
             book <<<
               id:        +book.id
-              alias:     hyphenated book.title
+              alias:     hyphenate book.title
               timestamp: moment book.last_update .valueOf!
             @aliases.push book
           @aliases.sort (a, b) -> a.id - b.id
@@ -108,7 +107,7 @@ Books =
           ps = for book in JSON.parse body
             book <<<
               id:        +book.id
-              alias:     hyphenated book.title
+              alias:     hyphenate book.title
               timestamp: moment book.last_update .valueOf!
             old = @findById book.id
             if old           is   undefined      or
