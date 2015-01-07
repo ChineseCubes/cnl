@@ -39,6 +39,7 @@
     "rsvp": "^3.0.14",
     "should": "^4.3.1",
     "superagent": "^0.21.0",
-    "through": "^2.3.6"
+    "through": "^2.3.6",
+    "winston": "^0.8.3"
   }
 }

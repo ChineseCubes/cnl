@@ -4,19 +4,45 @@ require! {
   request
   cors
   moment
+  winston
   rsvp:         { Promise, all }:RSVP
   'prelude-ls': { filter, split, join, map, find }
   './codepoints': codepoints
   './moedict':    moedict
 }
 
-##
+###
+# logger
+logger = new winston.Logger do
+  levels:
+    debug:   0
+    info:    1
+    server:  1
+    request: 1
+    warn:    2
+    error:   3
+  colors:
+    debug:   \blue
+    info:    \green
+    server:  \magenta
+    request: \cyan
+    warn:    \yellow
+    error:   \red
+  transports:
+    * new winston.transports.Console do
+        colorize:  on
+        timestamp: on
+    * new winston.transports.File do
+        timestamp: on
+        filename:  'cnl.log'
+
+###
 # configs
 #aliases-db  = level './db/aliases'
 api-host    = 'https://apis-beta.chinesecubes.com'
 not-running = (done) !-> done? new Error 'server is not running'
 
-RSVP.on \error -> console.log it
+RSVP.on \error -> logger.error it
 
 ###
 # helpers
@@ -45,7 +71,7 @@ generate-dict = ({ id, hash, alias }) -> new Promise (resolve, reject) ->
         .then (cpts) ->
           cpts  = (for cpts => parseInt .., 16)
           chars = (for cpts => String.fromCharCode ..)join('')
-          console.log "dict.json: #alias"
+          logger.server "/books/#alias/dict.json"
           resolve moedict chars
 
 Books =
@@ -54,7 +80,7 @@ Books =
   find:     (alias) -> @aliases |> find (.alias is alias)
   findById: (id)    -> @aliases |> find (.id is id) # FIXME: slow?
   init: -> new Promise (resolve, reject) ~>
-    console.log "[#{moment!format!}] init books"
+    logger.server "init books"
     request do
       "#api-host/Epub/getBooklist"
       (e, r, body) ~>
@@ -72,7 +98,7 @@ Books =
             @dicts[book.alias] = generate-dict book
           resolve ps
   update: -> new Promise (resolve, reject) ~>
-    console.log "[#{moment!format!}] update books"
+    logger.server "update books"
     request do
       "#api-host/Epub/getBooklist"
       (e, r, body) ~>
@@ -137,8 +163,28 @@ service =
       (app = express!)
         #.use multer dest: path.resolve 'uploads'
         .use cors!
+        .use (req, res, next) ->
+          logger.request req.originalUrl
+          next!
         .get '/' (req, res) ->
           res.send service.msg
+        .get '/logs/' (req, res) ->
+          logger.query do
+            from:  0
+            until: moment!
+            (err, msgs) ->
+              if err
+                then res.sendStatus 500
+                else res.json msgs.file
+        .get '/logs/:level' (req, res) ->
+          { level } = req.params
+          logger.query do
+            from:  0
+            until: moment!
+            (err, msgs) ->
+              if err
+                then res.sendStatus 500
+                else res.json filter (.level is level), msgs.file
         .get '/books/' (req, res) ->
           res.send Books.aliases
         .get '/books/:alias/' (req, res) ->
@@ -197,7 +243,7 @@ service =
               server.stop := not-running
               done!
           { address, port } = server.address!
-          console.log "listening at http://#address:#port" if running-as-script
+          logger.server "listening at http://#address:#port" if running-as-script
           done?!
 
     Books.init!then ->
