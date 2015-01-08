@@ -4,14 +4,15 @@ require! {
 
 ###
 # traverse
-traverse = (node, onNode, parents = []) !->
-  | not node   => return
-  | not onNode => return
+traverse = (node, onEnter, onLeave, parents = []) !->
+  | not node                 => return
+  | not (onEnter or onLeave) => return
   | otherwise
-    onNode node, parents
+    onEnter? node, parents
     namelist = if node.name then [node.name] else []
     for child in (node.children or [])
-      traverse child, onNode, parents.concat namelist
+      traverse child, onEnter, onLeave, parents.concat namelist
+    onLeave? node, parents
 ###
 # transform
 ##
@@ -77,6 +78,18 @@ v1-from-v0 = (node, path = '') ->
     namesplit(n.name) <<<
       text:  n.text
       attrs: attrs
+
+###
+# v1-sentences
+##
+# get all sentences of the page
+v1-sentences = (node) -> ...
+
+###
+# v1-words
+##
+# get all words of the page
+v1-words = (node) -> ...
 
 ###
 # v2-from-v1

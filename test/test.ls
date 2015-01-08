@@ -113,25 +113,19 @@ describe 'utils' (,) ->
 
   describe 'traverse' (,) ->
     it 'should visit all nodes' ->
-      count = 0
-      traverse node, (n, ps) !->
-        | count is 0
-          n.name.should.be.eql \foo
-          n.props.type.should.be.eql \first
-          ps.should.be.eql []
-        | count is 1
-          n.name.should.be.eql \bar
-          n.props.type.should.be.eql \child
-          ps.should.be.eql <[foo]>
-        | count is 2
-          n.name.should.be.eql \foobar
-          n.props.type.should.be.eql \child
-          ps.should.be.eql <[foo]>
-        | count is 3
-          n.name.should.be.eql \quux
-          n.props.type.should.be.eql \last
-          ps.should.be.eql <[foo foobar]>
-        ++count
+      stack = []
+      traverse do
+        node
+        (n, ps) !->
+          stack.push do
+            name:    n.name
+            type:    n.props.type
+            parents: ps
+        (n, ps) !->
+          { name, type, parents } = stack.pop!
+          n.name.should.be.eql name
+          n.props.type.should.be.eql type
+          ps.should.be.eql parents
 
   describe 'transform' (,) ->
     it 'should create a new tree' ->
