@@ -8,7 +8,8 @@ require! {
   '../src/webvtt':     webvtt
   '../src/data/utils':
     { unslash, hyphenate, camelize, namesplit, ps-noto-name }
-  '../src/data/node': { traverse, transform }
+  '../src/data/node':
+    { traverse, transform, v1-from-v0, v1-sentences, v1-segments }
 }
 
 service = require '../lib'
@@ -92,6 +93,7 @@ describe 'utils' (,) ->
       ps-noto-name 'Noto Sans S Chinese Regular'
         .should.be.exactly 'NotoSansHans-Regular'
 
+describe 'node(page of a presentation)' (,) ->
   node =
     name: \foo
     props:
@@ -149,6 +151,17 @@ describe 'utils' (,) ->
         | count is 2 => n.children.length.should.be.eql 1
         | count is 3 => n.children.length.should.be.eql 0
         ++count
+
+  page = v1-from-v0 require './haoaidu.json'
+  describe 'v1 page' (,) ->
+    it 'should have sentences' ->
+      v1-sentences page .should.be.eql <[ 大家好。 我是好愛讀。 ]>
+
+    it 'should have segments' ->
+      v1-segments page .should.be.eql [
+        { zh: '大家好',     en: 'Hello everyone. '       }
+        { zh: '我是好愛讀', en: 'My name is Hao ai du. ' }
+      ]
 
 describe 'API endpoints' (,) ->
   samples =

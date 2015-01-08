@@ -83,13 +83,44 @@ v1-from-v0 = (node, path = '') ->
 # v1-sentences
 ##
 # get all sentences of the page
-v1-sentences = (node) -> ...
+v1-sentences = (node) ->
+  sentences = []
+  traverse do
+    node
+    (n, ps) ->
+      if (n.name is \span)  and
+         not (\notes in ps) and
+         n.text
+        sentences.push n.text
+  sentences
 
 ###
-# v1-words
+# v1-segments
 ##
 # get all words of the page
-v1-words = (node) -> ...
+v1-segments = (node) ->
+  var sgmnt
+  state = \zh
+  segments = []
+  traverse do
+    node
+    (n, ps) ->
+      if (n.name is \span) and
+         (\notes in ps)    and
+         n.text
+        sgmnt := {} if not sgmnt
+        sgmnt[state] = n.text
+    (n, ps) ->
+      if (n.name is \span) and
+         (\notes in ps)    and
+         n.text
+        if state is \en
+          segments.push sgmnt
+          sgmnt := null
+          state := \zh
+        else
+          state := \en
+  segments
 
 ###
 # v2-from-v1
@@ -101,4 +132,6 @@ module.exports = {
   traverse
   transform
   v1-from-v0
+  v1-sentences
+  v1-segments
 }
