@@ -6,7 +6,7 @@ require! {
   moment
   winston
   rsvp:         { Promise, all }:RSVP
-  'prelude-ls': { filter, split, join, map, find }
+  'prelude-ls': { filter, find }
   './codepoints': codepoints
   './moedict':    moedict
   './data/utils': { hyphenate }

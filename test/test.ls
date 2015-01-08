@@ -8,6 +8,7 @@ require! {
   '../src/webvtt':     webvtt
   '../src/data/utils':
     { unslash, hyphenate, camelize, namesplit, ps-noto-name }
+  '../src/data/node': { traverse, transform }
 }
 
 service = require '../lib'
@@ -90,6 +91,70 @@ describe 'utils' (,) ->
         .should.be.exactly 'NotoSansHant-Regular'
       ps-noto-name 'Noto Sans S Chinese Regular'
         .should.be.exactly 'NotoSansHans-Regular'
+
+  node =
+    name: \foo
+    props:
+      type: \first
+    children:
+      * name: \bar
+        props:
+          type: \child
+        children: []
+      * name: \foobar
+        props:
+          type: \child
+        children:
+          * name: \quux
+            props:
+              type: \last
+            children: []
+          ...
+
+  describe 'traverse' (,) ->
+    it 'should visit all nodes' ->
+      count = 0
+      traverse node, (n, ps) !->
+        | count is 0
+          n.name.should.be.eql \foo
+          n.props.type.should.be.eql \first
+          ps.should.be.eql []
+        | count is 1
+          n.name.should.be.eql \bar
+          n.props.type.should.be.eql \child
+          ps.should.be.eql <[foo]>
+        | count is 2
+          n.name.should.be.eql \foobar
+          n.props.type.should.be.eql \child
+          ps.should.be.eql <[foo]>
+        | count is 3
+          n.name.should.be.eql \quux
+          n.props.type.should.be.eql \last
+          ps.should.be.eql <[foo foobar]>
+        ++count
+
+  describe 'transform' (,) ->
+    it 'should create a new tree' ->
+      new-node = transform node, (n, ps) ->
+        name: n.name.toUpperCase!
+      count = 0
+      traverse new-node, (n, ps) !->
+        | count is 0 => n.name.should.be.eql \FOO
+        | count is 1 => n.name.should.be.eql \BAR
+        | count is 2 => n.name.should.be.eql \FOOBAR
+        | count is 3 => n.name.should.be.eql \QUUX
+        ++count
+
+    it 'should return the skeleton' ->
+      new-node = transform node
+      new-node.should.not.be.eql node
+      count = 0
+      traverse new-node, (n, ps) !->
+        | count is 0 => n.children.length.should.be.eql 2
+        | count is 1 => n.children.length.should.be.eql 0
+        | count is 2 => n.children.length.should.be.eql 1
+        | count is 3 => n.children.length.should.be.eql 0
+        ++count
 
 describe 'API endpoints' (,) ->
   samples =
