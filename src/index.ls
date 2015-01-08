@@ -10,6 +10,7 @@ require! {
   './codepoints': codepoints
   './moedict':    moedict
   './data/utils': { hyphenate }
+  './data/node' : { v1-from-v0 }
 }
 
 ###
@@ -50,6 +51,7 @@ RSVP.on \error -> logger.error it
 running-as-script = not module.parent
 
 generate-dict = ({ id, hash, alias }) -> new Promise (resolve, reject) ->
+  #return resolve null # uncomment to disable dict.json
   get-file = (filepath) -> new Promise (resolve, reject) ->
     request do
       "#api-host/Epub/getBookFile/#id/#hash/#filepath"
@@ -133,6 +135,9 @@ ask-apis-beta = (alias, filepath, req, res) ->
       if r.statusCode isnt 200
         return res.status r.statusCode .send '?'
       switch
+        # patch the page on the fly
+        #| filepath is /page[1-9]\d?\.json$/
+        #  res.json v1-from-v0 JSON.parse body
         | filepath is /.json$/
           res
             ..type 'json'

@@ -3,7 +3,7 @@ require! {
 }
 
 trim         = -> it.trim!
-unslash      = -> it.replace /\/$/ ''
+unslash      = -> it.replace /\/$/ '' # FIXME: should use path.normalize
 hyphenate    = ->
   it
   |> trim

@@ -49,8 +49,8 @@ create-play-button = (idx) ->
           'page-num': idx
           'on-click': -> ...
           'font-size': '1cm'
-      ...
-  ...
+        ...
+    ...
 
 ###
 # v1-from-v0
@@ -74,7 +74,7 @@ v1-from-v0 = (node, path = '') ->
       | name is 'pageNum'    => attrs[name]       = v
       | otherwise            => attrs.style[name] = v
     attrs.href = "#path/#{attrs.href}" if attrs.href
-    namepsplit(n.name) <<<
+    namesplit(n.name) <<<
       text:  n.text
       attrs: attrs
 
