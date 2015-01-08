@@ -9,7 +9,7 @@ require! {
   '../src/data/utils':
     { unslash, hyphenate, camelize, namesplit, ps-noto-name }
   '../src/data/node':
-    { traverse, transform, v1-from-v0, v1-sentences, v1-segments }
+    { traverse, transform, v1-from-v0, v1-sentences, v1-segments, v1-dicts }
 }
 
 service = require '../lib'
@@ -162,6 +162,10 @@ describe 'node(page of a presentation)' (,) ->
         { zh: '大家好',     en: 'Hello everyone. '       }
         { zh: '我是好愛讀', en: 'My name is Hao ai du. ' }
       ]
+
+    it 'should dave dicts' ->
+      # XXX: should test more
+      v1-dicts page .length.should.be.exactly 12
 
 describe 'API endpoints' (,) ->
   samples =

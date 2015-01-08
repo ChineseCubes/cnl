@@ -3,7 +3,8 @@ require! {
 }
 
 trim         = -> it.trim!
-unslash      = -> it.replace /\/$/ '' # FIXME: should use path.normalize
+unslash      = -> it.replace /\/$/    '' # FIXME: should use path.normalize
+strip        = -> it.replace /<.*?>/g ''
 hyphenate    = ->
   it
   |> trim
@@ -34,4 +35,5 @@ module.exports = {
   camelize
   namesplit
   ps-noto-name
+  strip
 }

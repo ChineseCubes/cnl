@@ -1,5 +1,5 @@
 require! {
-  './utils': { camelize, namesplit }
+  './utils': { strip, camelize, namesplit }
 }
 
 ###
@@ -122,6 +122,20 @@ v1-segments = (node) ->
           state := \en
   segments
 
+v1-dicts = (node) ->
+  dicts = []
+  traverse do
+    node
+    (n, ps) ->
+      if (n.attrs.data)
+        dicts :=
+          for d in n.attrs.data
+            'zh-TW': d.traditional
+            'zh-CN': d.simplified
+            pinyin:  d.pinyin_marks
+            en:      strip d.translation .split /\//
+  dicts
+
 ###
 # v2-from-v1
 ##
@@ -134,4 +148,5 @@ module.exports = {
   v1-from-v0
   v1-sentences
   v1-segments
+  v1-dicts
 }
