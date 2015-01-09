@@ -136,8 +136,10 @@ ask-apis-beta = (alias, filepath, req, res) ->
         return res.status r.statusCode .send '?'
       switch
         # patch the page on the fly
-        #| filepath is /page[1-9]\d?\.json$/
-        #  res.json v1-from-v0 JSON.parse body
+        | filepath is /page[1-9]\d?\.json$/
+          res.json v1-from-v0 do
+            JSON.parse body
+            "http://#{req.headers.host}/books/#alias"
         | filepath is /.json$/
           res
             ..type 'json'
