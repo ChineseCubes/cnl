@@ -7,8 +7,9 @@ require! {
   winston
   rsvp:         { Promise, all }:RSVP
   'prelude-ls': { filter, find }
-  './codepoints': codepoints
-  './moedict':    moedict
+  './codepoints':    codepoints
+  './moedict':       moedict
+  './tmpl/contents': contents
   './data/utils': { hyphenate }
   './data/node' : { v1-from-v0 }
 }
@@ -125,6 +126,12 @@ ask-apis-beta = (alias, filepath, req, res) ->
   unless book
     return res.status 404 .send 'Not Found'
   { id, hash } = book
+  #if filepath is /page([1-9]\d?)\.json$/
+  #  page-num = +RegExp.$1
+  #  if page-num is 2
+  #    return res.json contents!
+  #  if page-num > 2
+  #    filepath .= replace "page#page-num.json" "page#{page-num - 1}.json"
   request do
     method:   \GET
     url:      "#api-host/Epub/getBookFile/#id/#hash/#filepath"
@@ -137,32 +144,31 @@ ask-apis-beta = (alias, filepath, req, res) ->
       if body.length is 0
         return res.sendStatus 404
       switch
-        # patch the page on the fly
-        | filepath is /page([1-9]\d?)\.json$/
-          console.log RegExp.$1
-          res.json v1-from-v0 do
-            JSON.parse body
-            "http://#{req.headers.host}/books/#alias"
-        | filepath is /.json$/
-          res
-            ..type 'json'
-            ..send body
-        | filepath is /.jpg/
-          res
-            ..type 'jpg'
-            ..send new Buffer body, \binary
-        | filepath is /.png$/
-          res
-            ..type 'png'
-            ..send new Buffer body, \binary
-        | filepath is /.mp3$/
-          res
-            ..type 'mp3'
-            ..send new Buffer body, \binary
-        | otherwise
-          res
-            ..send 'text'
-            ..send body
+      # patch the page on the fly
+      | filepath is /page([1-9]\d?)\.json$/
+        res.json v1-from-v0 do
+          JSON.parse body
+          "http://#{req.headers.host}/books/#alias"
+      | filepath is /.json$/
+        res
+          ..type 'json'
+          ..send body
+      | filepath is /.jpg/
+        res
+          ..type 'jpg'
+          ..send new Buffer body, \binary
+      | filepath is /.png$/
+        res
+          ..type 'png'
+          ..send new Buffer body, \binary
+      | filepath is /.mp3$/
+        res
+          ..type 'mp3'
+          ..send new Buffer body, \binary
+      | otherwise
+        res
+          ..send 'text'
+          ..send body
 
 service =
   msg:   'you have control'
