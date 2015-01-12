@@ -16,8 +16,8 @@ module.exports = ->
         y: '0cm'
         width:  '7.35cm'
         height: '2.275cm'
-        'line-height': '2.275cm'
-        'font-size': '1.1cm'
+        lineHeight: '2.275cm'
+        fontSize: '1.1cm'
       children: []
     * name: \frame
       namespace: \draw
@@ -27,8 +27,8 @@ module.exports = ->
         y: '0cm'
         width:  '7.35cm'
         height: '2.275cm'
-        'line-height': '2.275cm'
-        'font-size': '1.1cm'
+        lineHeight: '2.275cm'
+        fontSize: '1.1cm'
       children: []
     * name: \frame
       namespace: \draw
@@ -38,6 +38,6 @@ module.exports = ->
         y: '0cm'
         width:  '7.35cm'
         height: '2.275cm'
-        'line-height': '2.275cm'
-        'font-size': '1.1cm'
+        lineHeight: '2.275cm'
+        fontSize: '1.1cm'
       children: []

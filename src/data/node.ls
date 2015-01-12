@@ -40,7 +40,7 @@ transform = (node, onNode, parents = []) ->
 # patch a presentation from the v0 format(parsed by the PHP server) to my
 # internal format for react-odp
 v1-from-v0 = (node, path = '') ->
-  prop-names = <[name x y width height href data onClick onTouchStart]>
+  prop-names = <[name onClick onTouchStart]>
   name = node.attrs['DRAW:NAME']
   if name isnt \page1
     idx = +name.replace('page', '') - 1
@@ -50,11 +50,14 @@ v1-from-v0 = (node, path = '') ->
     for k, v of n.attrs
       name = camelize namesplit(k)name
       switch
-      | name is 'pageWidth'  => attrs.width       = v
-      | name is 'pageHeight' => attrs.hegiht      = v
-      | name in prop-names   => attrs[name]       = v
-      | name is 'pageNum'    => attrs[name]       = v
-      | otherwise            => attrs.style[name] = v
+      | name is \x          => attrs.style.left   = v
+      | name is \y          => attrs.style.top    = v
+      | name is \pageWidth  => attrs.style.width  = v
+      | name is \pageHeight => attrs.style.hegiht = v
+      | name is \href       => attrs.href         = v
+      | name is \pageNum    => attrs[name]        = v
+      | name in prop-names  => attrs[name]        = v
+      | otherwise           => attrs.style[name]  = v
     attrs.href = "#path/#{attrs.href}" if attrs.href
     namesplit(n.name) <<<
       text:  n.text
