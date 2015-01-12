@@ -131,12 +131,15 @@ ask-apis-beta = (alias, filepath, req, res) ->
     encoding: \binary
     (e, r, body) !-> # prevent switch return
       if e
-        return res.status 500 .send 'Internal Error'
+        return res.sendStatus 500
       if r.statusCode isnt 200
-        return res.status r.statusCode .send '?'
+        return res.sendStatus r.statusCode
+      if body.length is 0
+        return res.sendStatus 404
       switch
         # patch the page on the fly
-        | filepath is /page[1-9]\d?\.json$/
+        | filepath is /page([1-9]\d?)\.json$/
+          console.log RegExp.$1
           res.json v1-from-v0 do
             JSON.parse body
             "http://#{req.headers.host}/books/#alias"
