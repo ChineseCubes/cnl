@@ -97,6 +97,7 @@ Books =
             @aliases.push book
           @aliases.sort (a, b) -> a.id - b.id
           ps = for let book in Books.aliases
+            logger.server "update book: ", book
             @dicts[book.alias] = generate-dict book
           resolve ps
   update: -> new Promise (resolve, reject) ~>

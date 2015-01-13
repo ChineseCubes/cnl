@@ -59,6 +59,10 @@ v1-from-v0 = (node, path = '') ->
       | name in prop-names  => attrs[name]        = v
       | otherwise           => attrs.style[name]  = v
     attrs.href = "#path/#{attrs.href}" if attrs.href
+    # vertical-align
+    if attrs.style.textarea-vertical-align
+      for c in n.children
+        c.style.textarea-vertical-align = attrs.textarea-vertical-align
     namesplit(n.name) <<<
       text:  n.text
       attrs: attrs
