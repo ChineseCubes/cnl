@@ -40,7 +40,7 @@ transform = (node, onNode, parents = []) ->
 # patch a presentation from the v0 format(parsed by the PHP server) to my
 # internal format for react-odp
 v1-from-v0 = (node, path = '') ->
-  prop-names = <[name onClick onTouchStart]>
+  prop-names = <[name className href pageNum onClick onTouchStart]>
   name = node.attrs['DRAW:NAME']
   if name isnt \page1
     idx = +name.replace('page', '') - 1
@@ -54,15 +54,15 @@ v1-from-v0 = (node, path = '') ->
       | name is \y          => attrs.style.top    = v
       | name is \pageWidth  => attrs.style.width  = v
       | name is \pageHeight => attrs.style.hegiht = v
-      | name is \href       => attrs.href         = v
-      | name is \pageNum    => attrs[name]        = v
+      | name is \href       => attrs.href         = "#path/#v"
       | name in prop-names  => attrs[name]        = v
       | otherwise           => attrs.style[name]  = v
-    attrs.href = "#path/#{attrs.href}" if attrs.href
     # vertical-align
     if attrs.style.textarea-vertical-align
-      for c in n.children
-        c.style.textarea-vertical-align = attrs.textarea-vertical-align
+      aligned = attrs.style.textarea-vertical-align
+      traverse n, (n, ps) ->
+        if n.name is /TEXT-BOX|IMAGE/
+          n.attrs['class-name'] = "aligned #aligned"
     namesplit(n.name) <<<
       text:  n.text
       attrs: attrs
