@@ -53,10 +53,15 @@ v1-from-v0 = (node, path = '') ->
       | name is \x          => attrs.style.left   = v
       | name is \y          => attrs.style.top    = v
       | name is \pageWidth  => attrs.style.width  = v
-      | name is \pageHeight => attrs.style.hegiht = v
+      | name is \pageHeight => attrs.style.height = v
       | name is \href       => attrs.href         = "#path/#v"
       | name in prop-names  => attrs[name]        = v
       | otherwise           => attrs.style[name]  = v
+    attrs.style
+      ..left   ?= \auto
+      ..top    ?= \auto
+      ..width  ?= \auto
+      ..height ?= \auto
     # vertical-align
     if attrs.style.textarea-vertical-align
       aligned = attrs.style.textarea-vertical-align

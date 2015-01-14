@@ -3,41 +3,42 @@ module.exports = ->
   name: \frame
   namespace: \draw
   attrs:
-    x: '2.45cm'
-    y: '17.85cm'
-    width:  '23.1cm'
-    height: '2.275cm'
+    style:
+      left: '2.45cm'
+      top:  '17.85cm'
+      width:  '23.1cm'
+      height: '2.275cm'
   children:
-    * name: \frame
-      namespace: \draw
-      id: 'glossary'
+    * name: \glossary
+      namespace: \menu
       attrs:
-        x: '0cm'
-        y: '0cm'
-        width:  '7.35cm'
-        height: '2.275cm'
-        lineHeight: '2.275cm'
-        fontSize: '1.1cm'
+        style:
+          left: '0cm'
+          top:  '0cm'
+          width:  '7.35cm'
+          height: '2.275cm'
+          lineHeight: '2.275cm'
+          fontSize: '1.1cm'
       children: []
-    * name: \frame
-      namespace: \draw
-      id: 'read-to-me'
+    * name: \read-to-me
+      namespace: \menu
       attrs:
-        x: '7.875cm'
-        y: '0cm'
-        width:  '7.35cm'
-        height: '2.275cm'
-        lineHeight: '2.275cm'
-        fontSize: '1.1cm'
+        style:
+          left: '7.875cm'
+          top:  '0cm'
+          width:  '7.35cm'
+          height: '2.275cm'
+          lineHeight: '2.275cm'
+          fontSize: '1.1cm'
       children: []
-    * name: \frame
-      namespace: \draw
-      id: 'learn-by-myself'
+    * name: \learn-by-myself
+      namespace: \menu
       attrs:
-        x: '15.75cm'
-        y: '0cm'
-        width:  '7.35cm'
-        height: '2.275cm'
-        lineHeight: '2.275cm'
-        fontSize: '1.1cm'
+        style:
+          left: '15.75cm'
+          top:  '0cm'
+          width:  '7.35cm'
+          height: '2.275cm'
+          lineHeight: '2.275cm'
+          fontSize: '1.1cm'
       children: []
