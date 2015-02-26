@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prestart": "gulp",
-    "start": "node ./lib/index.js",
+    "start": "API=https://ccapi.johnslab.com DICT=false node ./lib/index.js",
     "pretest": "gulp",
     "test": "./node_modules/.bin/mocha --compilers ls:LiveScript"
   },

@@ -42,7 +42,7 @@ logger = new winston.Logger do
 ###
 # configs
 #aliases-db  = level './db/aliases'
-api-host    = 'https://apis-beta.chinesecubes.com'
+api-host    = process.env.API
 not-running = (done) !-> done? new Error 'server is not running'
 
 RSVP.on \error -> logger.error it
@@ -52,7 +52,7 @@ RSVP.on \error -> logger.error it
 running-as-script = not module.parent
 
 generate-dict = ({ id, hash, alias }) -> new Promise (resolve, reject) ->
-  #return resolve null # uncomment to disable dict.json
+  return resolve null if process.env.DICT is \false
   get-file = (filepath) -> new Promise (resolve, reject) ->
     request do
       "#api-host/Epub/getBookFile/#id/#hash/#filepath"
