@@ -247,9 +247,10 @@ service =
               res
                 .type \json
                 .send "{\"webvtt\":\"#body\"}"
-        .get /\/books\/[^/]+\/.+/ (req, res) ->
-          { 1: alias, 2: filepath } = /\/books\/([^/]+)\/(.+)/exec req.url
-          filepath .= replace /Pictures\//, ''
+        .get /\/+books\/+[^/]+\/+.+/ (req, res) ->
+          { 1: alias, 2: filepath } = /\/+books\/+([^/]+)\/+(.+)/exec decodeURIComponent req.url
+          console.log alias, filepath
+          filepath .= replace /Pictures\/+/, ''
           ask-apis-beta alias, filepath, req, res
       server = app.listen do
         process.env.PORT or 8081
