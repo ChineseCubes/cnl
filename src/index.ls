@@ -14,6 +14,10 @@ require! {
   './data/node' : { v1-from-v0 }
 }
 
+# Node.js request CERT_HAS_EXPIRED
+# http://stackoverflow.com/questions/20433287/node-js-request-cert-has-expired
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 ###
 # logger
 logger = new winston.Logger do
