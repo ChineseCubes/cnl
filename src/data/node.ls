@@ -1,5 +1,6 @@
 require! {
-  './utils': { strip, camelize, namesplit }
+  'prelude-ls': { map }
+  './utils': { strip, camelize, namesplit, noto-fallbacks }
   '../tmpl/menu':        menu
   '../tmpl/play-button': play-button
 }
@@ -57,7 +58,11 @@ v1-from-v0 = (node, path = '') ->
       | name is \pageHeight => attrs.style.height = v
       | name is \href       => attrs.href         = "#path/#v"
       | name in prop-names  => attrs[name]        = v
-      | name is \fontFamily => attrs.style[name]  = v.replace /;/g, ','
+      | name is \fontFamily =>
+        font-family = v.replace /;.*/g, ''
+        { fallbacks, weight } = noto-fallbacks font-family
+        attrs.style[name] = "#font-family, " + (fallbacks |> map (-> "'#it'"))join ', '
+        attrs.style.font-weight = weight;
       | otherwise           => attrs.style[name]  = v
     attrs.style
       ..left   ?= \auto
